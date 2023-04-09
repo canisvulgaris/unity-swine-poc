@@ -198,6 +198,7 @@ namespace GK
                         var childArea = bs.Area;
 
                         var rb = bs.GetComponent<Rigidbody>();
+                        rb.isKinematic = false;
 
                         rb.mass = Rigidbody.mass * (childArea / area);
                     }
