@@ -440,12 +440,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 599829403}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.45, z: 0.6}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.45000005, z: 0.5999999}
   m_LocalScale: {x: 0.8, y: 0.4, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1600695279}
+  m_Father: {fileID: 1444159881}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &599829405
@@ -783,7 +783,6 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
-  - component: {fileID: 963194229}
   - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
@@ -866,21 +865,6 @@ Transform:
   m_Father: {fileID: 1792658488}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &963194229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b3c00a2553d44c2b94d18e917eacf88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ballPrefab: {fileID: 6942768569930734802, guid: 3284f9cbd592d44b8aa2eec5b206bcea, type: 3}
-  ballSpeed: 30
-  mainCamera: {fileID: 963194227}
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -888,7 +872,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3b863d6aed9c44448d8ce9300645668, type: 3}
   m_Name: 
@@ -906,6 +890,7 @@ GameObject:
   - component: {fileID: 997775005}
   - component: {fileID: 997775007}
   - component: {fileID: 997775006}
+  - component: {fileID: 997775008}
   m_Layer: 0
   m_Name: IsometricCamera
   m_TagString: Untagged
@@ -987,6 +972,20 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &997775008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997775004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac116674f91bb420389ac726d4528b4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorTexture: {fileID: 2800000, guid: 193b00a17e0c54a599a6342e9bf84846, type: 3}
+  hotSpot: {x: 0, y: 0}
 --- !u!1 &1023846487
 GameObject:
   m_ObjectHideFlags: 0
@@ -1281,6 +1280,7 @@ GameObject:
   - component: {fileID: 1444159884}
   - component: {fileID: 1444159883}
   - component: {fileID: 1444159886}
+  - component: {fileID: 1444159887}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1299,7 +1299,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 599829404}
   m_Father: {fileID: 1600695279}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1390,6 +1391,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 200
   movementSpeed: 5
+--- !u!114 &1444159887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444159880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 876fd67c3071a440eae1ea1fec90c305, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 997775007}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  maxDistance: 100
 --- !u!4 &1446787012 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 621360521474272360, guid: 2e7e354dad4174c1c8ac050b5eda420d, type: 3}
@@ -1472,7 +1490,7 @@ GameObject:
   - component: {fileID: 1588030732}
   - component: {fileID: 1588030731}
   - component: {fileID: 1588030730}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1595,7 +1613,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1444159881}
-  - {fileID: 599829404}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
