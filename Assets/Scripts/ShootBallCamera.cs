@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootBall : MonoBehaviour
+public class ShootBallCamera : MonoBehaviour
 {
     public GameObject ballPrefab;
     public float ballSpeed = 20f;
