@@ -11,9 +11,8 @@ public class ShootBallPlayer : MonoBehaviour
     // Start is called before the first frame update
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("Space key was pressed.");
             Shoot();
         }
     }
@@ -22,7 +21,6 @@ public class ShootBallPlayer : MonoBehaviour
         GameObject ball = Instantiate(ballPrefab, transform.position, transform.rotation);
         Rigidbody ballRigidbody = ball.GetComponent<Rigidbody>();
         ballRigidbody.velocity = transform.forward * ballSpeed;
-        Debug.Log("ball should show.");
         
     }
 }
