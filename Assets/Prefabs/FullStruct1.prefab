@@ -127,9 +127,9 @@ MonoBehaviour:
   Thickness: 0.1
   MinBreakArea: 0.3
   MinImpactToBreak: 15
-  MinShardMass: 0.2
+  MinShardMass: 1
   CurrentMass: 0
-  ShardClearTime: 60
+  ShardClearTime: 20
 --- !u!54 &3326196089809072913
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -284,9 +284,9 @@ MonoBehaviour:
   Thickness: 0.1
   MinBreakArea: 0.3
   MinImpactToBreak: 15
-  MinShardMass: 0.2
+  MinShardMass: 1
   CurrentMass: 0
-  ShardClearTime: 60
+  ShardClearTime: 20
 --- !u!54 &3574378602018719389
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -441,9 +441,9 @@ MonoBehaviour:
   Thickness: 0.1
   MinBreakArea: 0.3
   MinImpactToBreak: 15
-  MinShardMass: 0.2
+  MinShardMass: 1
   CurrentMass: 0
-  ShardClearTime: 60
+  ShardClearTime: 20
 --- !u!54 &5205248630147553152
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -755,9 +755,9 @@ MonoBehaviour:
   Thickness: 0.1
   MinBreakArea: 0.3
   MinImpactToBreak: 15
-  MinShardMass: 0.2
+  MinShardMass: 1
   CurrentMass: 0
-  ShardClearTime: 60
+  ShardClearTime: 20
 --- !u!54 &7070102723055835559
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -912,9 +912,9 @@ MonoBehaviour:
   Thickness: 0.1
   MinBreakArea: 0.3
   MinImpactToBreak: 15
-  MinShardMass: 0.2
+  MinShardMass: 1
   CurrentMass: 0
-  ShardClearTime: 60
+  ShardClearTime: 20
 --- !u!54 &8835433070871442026
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1069,9 +1069,9 @@ MonoBehaviour:
   Thickness: 0.1
   MinBreakArea: 0.3
   MinImpactToBreak: 15
-  MinShardMass: 0.2
+  MinShardMass: 1
   CurrentMass: 0
-  ShardClearTime: 60
+  ShardClearTime: 20
 --- !u!54 &1587012082489462354
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1226,9 +1226,9 @@ MonoBehaviour:
   Thickness: 0.1
   MinBreakArea: 0.3
   MinImpactToBreak: 15
-  MinShardMass: 0.2
+  MinShardMass: 1
   CurrentMass: 0
-  ShardClearTime: 60
+  ShardClearTime: 20
 --- !u!54 &227359599262060872
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1383,9 +1383,9 @@ MonoBehaviour:
   Thickness: 0.1
   MinBreakArea: 0.3
   MinImpactToBreak: 15
-  MinShardMass: 0.2
+  MinShardMass: 1
   CurrentMass: 0
-  ShardClearTime: 60
+  ShardClearTime: 20
 --- !u!54 &3125856073100983436
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1540,9 +1540,9 @@ MonoBehaviour:
   Thickness: 0.1
   MinBreakArea: 0.3
   MinImpactToBreak: 15
-  MinShardMass: 0.2
+  MinShardMass: 1
   CurrentMass: 0
-  ShardClearTime: 60
+  ShardClearTime: 20
 --- !u!54 &1215497372660246830
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1854,9 +1854,9 @@ MonoBehaviour:
   Thickness: 0.1
   MinBreakArea: 0.3
   MinImpactToBreak: 15
-  MinShardMass: 0.2
+  MinShardMass: 1
   CurrentMass: 0
-  ShardClearTime: 60
+  ShardClearTime: 20
 --- !u!54 &5776779155484879023
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2011,9 +2011,9 @@ MonoBehaviour:
   Thickness: 0.1
   MinBreakArea: 0.3
   MinImpactToBreak: 15
-  MinShardMass: 0.2
+  MinShardMass: 1
   CurrentMass: 0
-  ShardClearTime: 60
+  ShardClearTime: 20
 --- !u!54 &1960893325008250803
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2168,9 +2168,9 @@ MonoBehaviour:
   Thickness: 0.1
   MinBreakArea: 0.3
   MinImpactToBreak: 15
-  MinShardMass: 0.2
+  MinShardMass: 1
   CurrentMass: 0
-  ShardClearTime: 60
+  ShardClearTime: 20
 --- !u!54 &807252736935011482
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2325,9 +2325,9 @@ MonoBehaviour:
   Thickness: 0.1
   MinBreakArea: 0.3
   MinImpactToBreak: 15
-  MinShardMass: 0.2
+  MinShardMass: 1
   CurrentMass: 0
-  ShardClearTime: 60
+  ShardClearTime: 20
 --- !u!54 &7495456035817053865
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2482,9 +2482,9 @@ MonoBehaviour:
   Thickness: 0.1
   MinBreakArea: 0.3
   MinImpactToBreak: 15
-  MinShardMass: 0.2
+  MinShardMass: 1
   CurrentMass: 0
-  ShardClearTime: 60
+  ShardClearTime: 20
 --- !u!54 &6194623291606100384
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2875,7 +2875,7 @@ Transform:
   - {fileID: 61440650356585726}
   - {fileID: 4140944118329866369}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8077258542204617242
 GameObject:
@@ -3004,9 +3004,9 @@ MonoBehaviour:
   Thickness: 0.1
   MinBreakArea: 0.3
   MinImpactToBreak: 15
-  MinShardMass: 0.2
+  MinShardMass: 1
   CurrentMass: 0
-  ShardClearTime: 60
+  ShardClearTime: 20
 --- !u!54 &3079650926022087180
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3161,9 +3161,9 @@ MonoBehaviour:
   Thickness: 0.1
   MinBreakArea: 0.3
   MinImpactToBreak: 15
-  MinShardMass: 0.2
+  MinShardMass: 1
   CurrentMass: 0
-  ShardClearTime: 60
+  ShardClearTime: 20
 --- !u!54 &2130556385316490008
 Rigidbody:
   m_ObjectHideFlags: 0

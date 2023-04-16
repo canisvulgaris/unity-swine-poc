@@ -129,7 +129,7 @@ MonoBehaviour:
   MinImpactToBreak: 10
   MinShardMass: 0.2
   CurrentMass: 0
-  ShardClearTime: 60
+  ShardClearTime: 20
 --- !u!54 &6408574281852994488
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -286,7 +286,7 @@ MonoBehaviour:
   MinImpactToBreak: 10
   MinShardMass: 0.2
   CurrentMass: 0
-  ShardClearTime: 60
+  ShardClearTime: 20
 --- !u!54 &1473581917105261996
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -822,7 +822,7 @@ Transform:
   - {fileID: 3922898148206118058}
   - {fileID: 8145201963779615264}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6682119331783003697
 GameObject:
@@ -1110,7 +1110,7 @@ MonoBehaviour:
   MinImpactToBreak: 10
   MinShardMass: 0.2
   CurrentMass: 0
-  ShardClearTime: 60
+  ShardClearTime: 20
 --- !u!54 &900517654094732047
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1267,7 +1267,7 @@ MonoBehaviour:
   MinImpactToBreak: 10
   MinShardMass: 0.2
   CurrentMass: 0
-  ShardClearTime: 60
+  ShardClearTime: 20
 --- !u!54 &4567478755198080924
 Rigidbody:
   m_ObjectHideFlags: 0
