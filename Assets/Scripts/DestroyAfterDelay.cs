@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class DestroyAfterDelay : MonoBehaviour
 {
-    public float delay = 10f;
+    public float minDelay = 0.5f;
+    public float maxDelay = 2f;
 
     private void Start()
     {
@@ -13,7 +14,7 @@ public class DestroyAfterDelay : MonoBehaviour
 
     IEnumerator DestroyObject()
     {
-        yield return new WaitForSeconds(delay);
+        yield return new WaitForSeconds(Random.Range(minDelay, maxDelay));
         Destroy(gameObject);
     }
 }
