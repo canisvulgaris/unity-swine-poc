@@ -6,7 +6,8 @@ public class ShootBallPlayer : MonoBehaviour
 {
 
     public GameObject ballPrefab;
-    public float ballSpeed = 20f;
+
+    public float ballOffset = 2;
 
     // Start is called before the first frame update
     private void Update()
@@ -18,9 +19,7 @@ public class ShootBallPlayer : MonoBehaviour
     }
     void Shoot()
     {
-        GameObject ball = Instantiate(ballPrefab, transform.position, transform.rotation);
-        Rigidbody ballRigidbody = ball.GetComponent<Rigidbody>();
-        ballRigidbody.velocity = transform.forward * ballSpeed;
+        GameObject ball = Instantiate(ballPrefab, transform.position + transform.forward * ballOffset, transform.rotation);
         
     }
 }
