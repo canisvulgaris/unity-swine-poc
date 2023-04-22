@@ -21,14 +21,11 @@ public class StructReplace : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Projectile")
+        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Projectile" || other.gameObject.tag == "Accessories")
         {
-            Debug.Log("Player or Projectile has entered the trigger");
+            // Debug.Log("Player or Projectile has entered the trigger");
             parentDetail.SetActive(true);
             parentOuter.SetActive(false);
-        }
-        else {
-            Debug.Log("Something has entered the trigger");
         }
     }
 }

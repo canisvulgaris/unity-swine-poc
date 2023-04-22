@@ -46,14 +46,14 @@ using UnityEngine;
         if (Physics.Linecast(last_position, current_position, out hit, mask))
         {
             hit.transform.SendMessage("AddDamage", bullet_damage, SendMessageOptions.DontRequireReceiver); //Send Damage message to hit object
-            Debug.DrawLine (original_position, current_position, Color.red, 2.0f);
+            Debug.DrawLine (original_position, current_position, Color.red, 0.2f);
+            Destroy(gameObject);
         }            
      }
 
      void OnCollisionEnter(Collision collision)
      {
         SpawnDebris(collision);
-        Destroy(gameObject);
      }
 
      void SpawnDebris(Collision collision) {

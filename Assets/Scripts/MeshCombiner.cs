@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class MeshCombiner : MonoBehaviour
 {
+    private Vector3 originalPosition;
+
     void Start()
     {
+        originalPosition = transform.position;
         CombineMeshes();
     }
 
@@ -31,6 +34,8 @@ public class MeshCombiner : MonoBehaviour
         parentMeshCollider.sharedMesh = parentMeshFilter.mesh;
         parentMeshCollider.convex = true; // Set to true if you want the collider to be able to collide with other mesh colliders
 
-        gameObject.SetActive(true);
+        transform.position = transform.position - originalPosition;// + new Vector3(-6.0f, -4.0f, 0);
+
+        // gameObject.SetActive(true);
     }
 }

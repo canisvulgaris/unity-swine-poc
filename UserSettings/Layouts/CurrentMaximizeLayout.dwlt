@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 150}
   m_MaxSize: {x: 24288, y: 24288}
   vertical: 1
-  controlID: 665
+  controlID: 32456
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 666
+  controlID: 32388
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 667
+  controlID: 32360
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 668
+  controlID: 32298
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -260,10 +260,10 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
+      scrollPos: {x: 0, y: 254.5}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 50aaffff70abffff32b0ffffd8efffffa25c0000d65c0000ee5c0000fe5c0000
+      m_ExpandedIDs: 220efeff50aaffff70abffffd8efffff465c00004a5c0000a25c0000d65c0000ee5c0000fe5c0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -670,9 +670,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.10952167, y: 9.675253, z: -25.236925}
+    m_Target: {x: 13.241655, y: 2.6877468, z: 4.4487023}
     speed: 2
-    m_Value: {x: -0.10952167, y: 9.675253, z: -25.236925}
+    m_Value: {x: 13.241655, y: 2.6877468, z: 4.4487023}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -718,13 +718,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.39280912, y: 0.026068922, z: -0.0115789585, w: 0.91932267}
+    m_Target: {x: 0.022025974, y: 0.24349576, z: -0.0059601124, w: 0.96979415}
     speed: 2
-    m_Value: {x: 0.39275673, y: 0.026065445, z: -0.011577414, w: 0.91920006}
+    m_Value: {x: 0.022022545, y: 0.24345785, z: -0.005959185, w: 0.9696432}
   m_Size:
-    m_Target: 1.2140727
+    m_Target: 10
     speed: 2
-    m_Value: 1.2140727
+    m_Value: 10
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -807,7 +807,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 730
+  controlID: 32361
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -827,8 +827,8 @@ MonoBehaviour:
     y: 0
     width: 961
     height: 447.5
-  m_MinSize: {x: 231, y: 271}
-  m_MaxSize: {x: 10001, y: 10021}
+  m_MinSize: {x: 230, y: 250}
+  m_MaxSize: {x: 10000, y: 10000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -881,22 +881,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets
   m_LastFoldersGridSize: 16
   m_LastProjectPath: /Users/nauman/Work/github/me/unity-swine-poc
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: e0680000
-    m_LastClickedID: 26848
+    m_SelectedIDs: d4680000
+    m_LastClickedID: 26836
     m_ExpandedIDs: 00000000d4680000d668000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -950,9 +950,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_SelectedInstanceIDs: 4a5c0000
+    m_LastClickedInstanceID: 23626
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1073,7 +1073,7 @@ MonoBehaviour:
     m_CachedPref: 160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: -1
+  m_LastInspectedObjectInstanceID: 23626
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0

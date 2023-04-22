@@ -596,11 +596,11 @@ MonoBehaviour:
   expRadius: 1
   Polygon: []
   Thickness: 0.1
-  MinBreakArea: 0.3
+  MinBreakArea: 0.2
   MinImpactToBreak: 20
-  MinShardMass: 0.2
+  MinShardMass: 0.6
   CurrentMass: 0
-  ShardClearTime: 60
+  ShardClearTime: 30
 --- !u!54 &6091006477073944831
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1727,11 +1727,11 @@ MonoBehaviour:
   expRadius: 1
   Polygon: []
   Thickness: 0.1
-  MinBreakArea: 0.3
+  MinBreakArea: 0.2
   MinImpactToBreak: 20
-  MinShardMass: 0.2
+  MinShardMass: 0.6
   CurrentMass: 0
-  ShardClearTime: 60
+  ShardClearTime: 30
 --- !u!54 &6292178842380572239
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2669,11 +2669,11 @@ MonoBehaviour:
   expRadius: 1
   Polygon: []
   Thickness: 0.1
-  MinBreakArea: 0.3
+  MinBreakArea: 0.2
   MinImpactToBreak: 20
-  MinShardMass: 0.2
+  MinShardMass: 0.6
   CurrentMass: 0
-  ShardClearTime: 60
+  ShardClearTime: 30
 --- !u!54 &2158272329410788531
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2826,11 +2826,11 @@ MonoBehaviour:
   expRadius: 1
   Polygon: []
   Thickness: 0.1
-  MinBreakArea: 0.3
+  MinBreakArea: 0.2
   MinImpactToBreak: 20
-  MinShardMass: 0.2
+  MinShardMass: 0.6
   CurrentMass: 0
-  ShardClearTime: 60
+  ShardClearTime: 30
 --- !u!54 &4855393839537468671
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3360,7 +3360,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.9, y: 0.9, z: 1.5}
+  m_Size: {x: 0.9, y: 0.95, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6840531897282532298
 MonoBehaviour:
