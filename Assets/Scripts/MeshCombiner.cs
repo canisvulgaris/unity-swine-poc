@@ -32,7 +32,5 @@ public class MeshCombiner : MonoBehaviour
         parentMeshCollider.convex = true; // Set to true if you want the collider to be able to collide with other mesh colliders
 
         gameObject.SetActive(true);
-
-        // gameObject.GetComponent<"Breakable Surface">().enabled = true;
     }
 }
