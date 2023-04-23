@@ -21,7 +21,7 @@ public class MakeBreakable : MonoBehaviour
         
     }
     private void OnTriggerEnter(Collider other) {        
-        if (!InitialBreak && other.gameObject != this.gameObject)
+        if (!InitialBreak && !other.CompareTag("Player") && other.gameObject != this.gameObject)
         {
             // Debug.Log("Collision " + gameObject.name + " with " + other.gameObject.name);
             if (other.attachedRigidbody)

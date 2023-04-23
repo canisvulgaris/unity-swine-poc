@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 655bd1af5deee4f7b822f4d880ed4e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinImpactToBreak: 6
+  MinImpactToBreak: 10
   BridgeMesh: 0
 --- !u!65 &927333694615586846
 BoxCollider:
@@ -163,7 +163,7 @@ MonoBehaviour:
   Polygon: []
   Thickness: 0.1
   MinBreakArea: 0.1
-  MinImpactToBreak: 6
+  MinImpactToBreak: 8
   MinShardMass: 0.01
   CurrentMass: 0
   ShardClearTime: 20
@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 655bd1af5deee4f7b822f4d880ed4e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinImpactToBreak: 6
+  MinImpactToBreak: 10
   BridgeMesh: 0
 --- !u!65 &3056536219697691112
 BoxCollider:
@@ -330,7 +330,7 @@ MonoBehaviour:
   Polygon: []
   Thickness: 0.1
   MinBreakArea: 0.1
-  MinImpactToBreak: 6
+  MinImpactToBreak: 8
   MinShardMass: 0.01
   CurrentMass: 0
   ShardClearTime: 20
@@ -433,7 +433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 655bd1af5deee4f7b822f4d880ed4e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinImpactToBreak: 6
+  MinImpactToBreak: 10
   BridgeMesh: 0
 --- !u!65 &6518112848582935898
 BoxCollider:
@@ -497,7 +497,7 @@ MonoBehaviour:
   Polygon: []
   Thickness: 0.1
   MinBreakArea: 0.1
-  MinImpactToBreak: 6
+  MinImpactToBreak: 8
   MinShardMass: 0.01
   CurrentMass: 0
   ShardClearTime: 20
@@ -600,7 +600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 655bd1af5deee4f7b822f4d880ed4e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinImpactToBreak: 6
+  MinImpactToBreak: 10
   BridgeMesh: 1
 --- !u!65 &7568930850798900739
 BoxCollider:
@@ -664,7 +664,7 @@ MonoBehaviour:
   Polygon: []
   Thickness: 0.1
   MinBreakArea: 0.1
-  MinImpactToBreak: 6
+  MinImpactToBreak: 8
   MinShardMass: 0.01
   CurrentMass: 0
   ShardClearTime: 20
@@ -767,7 +767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 655bd1af5deee4f7b822f4d880ed4e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinImpactToBreak: 6
+  MinImpactToBreak: 10
   BridgeMesh: 0
 --- !u!65 &158117231959008001
 BoxCollider:
@@ -831,7 +831,7 @@ MonoBehaviour:
   Polygon: []
   Thickness: 0.1
   MinBreakArea: 0.1
-  MinImpactToBreak: 6
+  MinImpactToBreak: 8
   MinShardMass: 0.01
   CurrentMass: 0
   ShardClearTime: 20
@@ -870,7 +870,7 @@ Transform:
   - {fileID: 340181794366289437}
   - {fileID: 3879876684232215385}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1798827716519858543
 Rigidbody:
