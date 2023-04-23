@@ -9,7 +9,7 @@ namespace GK
         public bool isIntact = true;
 
         public float expPower = 1.0f;
-        public float expRadius = 5.0f;
+        public float expRadius = 2.0f;
 
         public MeshFilter Filter { get; private set; }
         public MeshRenderer Renderer { get; private set; }
@@ -21,10 +21,10 @@ namespace GK
         public List<Vector2> Polygon;
         public float Thickness = 0.1f;
         public float MinBreakArea = 0.3f;
-        public float MinImpactToBreak = 6.0f;
-        public float MinShardMass = 0.2f;
+        public float MinImpactToBreak = 10.0f;
+        public float MinShardMass = 1.0f;
         public float CurrentMass;
-        public float ShardClearTime = 60.0f;
+        public float ShardClearTime = 20.0f;
 
         bool destroyFlag = false;
         float _Area = -1.0f;
@@ -44,7 +44,7 @@ namespace GK
         void Start()
         {
             // SetGlobalVars();
-            Reload();
+            Init();
         }
 
         // public void SetGlobalVars()
@@ -61,8 +61,8 @@ namespace GK
         //     }
         // }
 
-        public void Reload()
-        {
+        public void Init()
+        {            
             var pos = transform.position;
 
             if (Filter == null) Filter = GetComponent<MeshFilter>();
@@ -94,7 +94,8 @@ namespace GK
         void FixedUpdate()
         {
             var pos = transform.position;
-            CurrentMass = GetComponent<Rigidbody>().mass;
+            
+            CurrentMass = Rigidbody.mass;
 
             if (pos.magnitude > 1000.0f)
             {
@@ -121,21 +122,19 @@ namespace GK
         }
 
         void CheckForIntact()
-        {
-            if (isIntact == true && GetComponent<Rigidbody>().mass < 1.0f)
+        {  
+            if (isIntact == true && Rigidbody.mass < 1.0f)
             {
                 isIntact = false;
                 //Fetch the Renderer from the GameObject
-                Renderer rend = GetComponent<Renderer>();
+                // Renderer rend = GetComponent<Renderer>();
 
                 //Set the main Color of the Material to green
                 // rend.material.shader = Shader.Find("_Color");
                 // rend.material.SetColor("_Color", Color.yellow);
-                GetComponent<Renderer>().material.color = new Color(1.0f, 0.52f, 0.18f, 1.0f);
+                Renderer.material.color = new Color(1.0f, 0.52f, 0.18f, 1.0f);
 
-                GetComponent<Rigidbody>().AddExplosionForce(expPower, transform.position, expRadius, 3.0F);
-
-
+                Rigidbody.AddExplosionForce(expPower, transform.position, expRadius, 3.0F);
             }
             else
             {
@@ -288,7 +287,6 @@ namespace GK
             Debug.Assert(vi == verts.Length);
 
             var mesh = new Mesh();
-
 
             mesh.vertices = verts;
             mesh.triangles = tris;
