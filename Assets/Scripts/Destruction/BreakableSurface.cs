@@ -212,6 +212,11 @@ namespace GK
 
                         var bs = newGo.GetComponent<BreakableSurface>();
 
+                        if (flipAxes)
+                        {
+                            bs.flipAxes = true;
+                        }
+                        
                         bs.Thickness = Thickness;
                         bs.Polygon.Clear();
                         bs.Polygon.AddRange(clipped);

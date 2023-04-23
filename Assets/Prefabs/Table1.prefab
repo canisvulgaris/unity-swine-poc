@@ -29,14 +29,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1515468803519227754}
-  m_LocalRotation: {x: 0.46871907, y: -0.4609974, z: -0.5372217, w: 0.5283718}
-  m_LocalPosition: {x: -12.519116, y: 2.6909227, z: -8.041242}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -14.4, y: -1.55, z: -7.4}
   m_LocalScale: {x: 0.1, y: 1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 730225267016137634}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: -82.209, z: -90.952}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!23 &1701499705928722968
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -164,7 +164,7 @@ MonoBehaviour:
   Thickness: 0.1
   MinBreakArea: 0.1
   MinImpactToBreak: 6
-  MinShardMass: 0.5
+  MinShardMass: 0.01
   CurrentMass: 0
   ShardClearTime: 20
 --- !u!1 &3289362779183484484
@@ -196,14 +196,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3289362779183484484}
-  m_LocalRotation: {x: 0.46871907, y: -0.4609974, z: -0.5372217, w: 0.5283718}
-  m_LocalPosition: {x: -7.9584274, y: 4.0907326, z: -8.6418085}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -9.6, y: -1.55, z: -8.6}
   m_LocalScale: {x: 0.1, y: 1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 730225267016137634}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: -82.209, z: -90.952}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!23 &5728657389316170121
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -331,7 +331,7 @@ MonoBehaviour:
   Thickness: 0.1
   MinBreakArea: 0.1
   MinImpactToBreak: 6
-  MinShardMass: 0.5
+  MinShardMass: 0.01
   CurrentMass: 0
   ShardClearTime: 20
 --- !u!1 &3439159064964140068
@@ -363,14 +363,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3439159064964140068}
-  m_LocalRotation: {x: 0.46871907, y: -0.4609974, z: -0.5372217, w: 0.5283718}
-  m_LocalPosition: {x: -7.9615793, y: 2.6909227, z: -8.664848}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -9.6, y: -1.55, z: -7.4}
   m_LocalScale: {x: 0.1, y: 1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 730225267016137634}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: -82.209, z: -90.952}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!23 &3102621335114918494
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -498,7 +498,7 @@ MonoBehaviour:
   Thickness: 0.1
   MinBreakArea: 0.1
   MinImpactToBreak: 6
-  MinShardMass: 0.5
+  MinShardMass: 0.01
   CurrentMass: 0
   ShardClearTime: 20
 --- !u!1 &4406504370978318793
@@ -530,14 +530,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4406504370978318793}
-  m_LocalRotation: {x: 0.46871907, y: -0.4609974, z: -0.5372217, w: 0.5283718}
-  m_LocalPosition: {x: -10.164227, y: 3.3816938, z: -7.796694}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -12, y: -1, z: -8}
   m_LocalScale: {x: 1.5, y: 0.1, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 730225267016137634}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: -82.209, z: -90.952}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!23 &7997762257259193894
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -665,7 +665,7 @@ MonoBehaviour:
   Thickness: 0.1
   MinBreakArea: 0.1
   MinImpactToBreak: 6
-  MinShardMass: 0.5
+  MinShardMass: 0.01
   CurrentMass: 0
   ShardClearTime: 20
 --- !u!1 &8809978095977732694
@@ -697,14 +697,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8809978095977732694}
-  m_LocalRotation: {x: 0.46871907, y: -0.4609974, z: -0.5372217, w: 0.5283718}
-  m_LocalPosition: {x: -12.515964, y: 4.0907326, z: -8.01821}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -14.4, y: -1.55, z: -8.6}
   m_LocalScale: {x: 0.1, y: 1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 730225267016137634}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: -82.209, z: -90.952}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!23 &662796311199957393
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -832,7 +832,7 @@ MonoBehaviour:
   Thickness: 0.1
   MinBreakArea: 0.1
   MinImpactToBreak: 6
-  MinShardMass: 0.5
+  MinShardMass: 0.01
   CurrentMass: 0
   ShardClearTime: 20
 --- !u!1 &9091775892304428757
