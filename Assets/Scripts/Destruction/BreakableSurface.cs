@@ -8,6 +8,8 @@ namespace GK
     {
         public bool isIntact = true;
 
+        public bool flipAxes = false;
+
         public float expPower = 1.0f;
         public float expRadius = 2.0f;
 
@@ -75,12 +77,24 @@ namespace GK
                 // Assume it's a cube with localScale dimensions
                 var scale = 0.5f * transform.localScale;
 
-                Polygon.Add(new Vector2(-scale.x, -scale.y));
-                Polygon.Add(new Vector2(scale.x, -scale.y));
-                Polygon.Add(new Vector2(scale.x, scale.y));
-                Polygon.Add(new Vector2(-scale.x, scale.y));
+                if (flipAxes) 
+                { 
+                    Polygon.Add(new Vector2(-scale.x, -scale.z));
+                    Polygon.Add(new Vector2(scale.x, -scale.z));
+                    Polygon.Add(new Vector2(scale.x, scale.z));
+                    Polygon.Add(new Vector2(-scale.x, scale.z));
 
-                Thickness = 2.0f * scale.z;
+                    Thickness = 2.0f * scale.y;
+                }
+                else 
+                {
+                    Polygon.Add(new Vector2(-scale.x, -scale.y));
+                    Polygon.Add(new Vector2(scale.x, -scale.y));
+                    Polygon.Add(new Vector2(scale.x, scale.y));
+                    Polygon.Add(new Vector2(-scale.x, scale.y));
+
+                    Thickness = 2.0f * scale.z;
+                }                
 
                 transform.localScale = Vector3.one;
             }
@@ -154,8 +168,9 @@ namespace GK
         }
 
         public void Break(Vector2 position)
-        {
+        {            
             var area = Area;
+            
             if (area > MinBreakArea)
             {
                 var calc = new VoronoiCalculator();
@@ -186,7 +201,14 @@ namespace GK
                         var newGo = Instantiate(gameObject, transform.parent);
 
                         newGo.transform.localPosition = transform.localPosition;
-                        newGo.transform.localRotation = transform.localRotation;
+                        if (flipAxes)
+                        {
+                            newGo.transform.localRotation = transform.localRotation * Quaternion.Euler(90, 0, 0);
+                        }
+                        else
+                        {
+                            newGo.transform.localRotation = transform.localRotation;
+                        }
 
                         var bs = newGo.GetComponent<BreakableSurface>();
 
