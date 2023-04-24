@@ -158,6 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isIntact: 1
   flipAxes: 0
+  brokenMaterial: {fileID: 2100000, guid: 75f0362e1b3214d2a9eea84c9b3dd231, type: 2}
   expPower: 1
   expRadius: 2
   Polygon: []
@@ -325,6 +326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isIntact: 1
   flipAxes: 0
+  brokenMaterial: {fileID: 2100000, guid: 75f0362e1b3214d2a9eea84c9b3dd231, type: 2}
   expPower: 1
   expRadius: 2
   Polygon: []
@@ -492,6 +494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isIntact: 1
   flipAxes: 0
+  brokenMaterial: {fileID: 2100000, guid: 75f0362e1b3214d2a9eea84c9b3dd231, type: 2}
   expPower: 1
   expRadius: 2
   Polygon: []
@@ -659,6 +662,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isIntact: 1
   flipAxes: 1
+  brokenMaterial: {fileID: 2100000, guid: 75f0362e1b3214d2a9eea84c9b3dd231, type: 2}
   expPower: 1
   expRadius: 2
   Polygon: []
@@ -826,6 +830,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isIntact: 1
   flipAxes: 0
+  brokenMaterial: {fileID: 2100000, guid: 75f0362e1b3214d2a9eea84c9b3dd231, type: 2}
   expPower: 1
   expRadius: 2
   Polygon: []

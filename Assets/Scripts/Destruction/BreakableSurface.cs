@@ -10,6 +10,8 @@ namespace GK
 
         public bool flipAxes = false;
 
+        public Material brokenMaterial;
+
         public float expPower = 1.0f;
         public float expRadius = 2.0f;
 
@@ -146,7 +148,12 @@ namespace GK
                 //Set the main Color of the Material to green
                 // rend.material.shader = Shader.Find("_Color");
                 // rend.material.SetColor("_Color", Color.yellow);
-                Renderer.material.color = new Color(1.0f, 0.52f, 0.18f, 1.0f);
+                if (brokenMaterial) {
+                    Renderer.material = brokenMaterial;      
+                }
+                else {
+                    Renderer.material.color = new Color(1.0f, 0.52f, 0.18f, 1.0f);
+                }
 
                 Rigidbody.AddExplosionForce(expPower, transform.position, expRadius, 3.0F);
             }

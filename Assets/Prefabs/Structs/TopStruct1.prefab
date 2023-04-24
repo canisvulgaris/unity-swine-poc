@@ -121,6 +121,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isIntact: 1
+  flipAxes: 0
+  brokenMaterial: {fileID: 2100000, guid: 8fc51f4f0eef74f6499a526a53fca66e, type: 2}
   expPower: 1
   expRadius: 2
   Polygon: []
@@ -278,6 +280,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isIntact: 1
+  flipAxes: 0
+  brokenMaterial: {fileID: 2100000, guid: 8fc51f4f0eef74f6499a526a53fca66e, type: 2}
   expPower: 1
   expRadius: 2
   Polygon: []
@@ -435,6 +439,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isIntact: 1
+  flipAxes: 0
+  brokenMaterial: {fileID: 2100000, guid: b668a96a00611484f80814b34bc46a1e, type: 2}
   expPower: 1
   expRadius: 1
   Polygon: []
@@ -592,6 +598,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isIntact: 1
+  flipAxes: 0
+  brokenMaterial: {fileID: 2100000, guid: b668a96a00611484f80814b34bc46a1e, type: 2}
   expPower: 1
   expRadius: 1
   Polygon: []
@@ -749,6 +757,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isIntact: 1
+  flipAxes: 0
+  brokenMaterial: {fileID: 2100000, guid: b668a96a00611484f80814b34bc46a1e, type: 2}
   expPower: 1
   expRadius: 1
   Polygon: []
@@ -945,6 +955,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isIntact: 1
+  flipAxes: 0
+  brokenMaterial: {fileID: 2100000, guid: b668a96a00611484f80814b34bc46a1e, type: 2}
   expPower: 1
   expRadius: 1
   Polygon: []
@@ -1102,6 +1114,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isIntact: 1
+  flipAxes: 0
+  brokenMaterial: {fileID: 2100000, guid: 8fc51f4f0eef74f6499a526a53fca66e, type: 2}
   expPower: 1
   expRadius: 2
   Polygon: []
@@ -1259,6 +1273,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isIntact: 1
+  flipAxes: 0
+  brokenMaterial: {fileID: 2100000, guid: 8fc51f4f0eef74f6499a526a53fca66e, type: 2}
   expPower: 1
   expRadius: 2
   Polygon: []
