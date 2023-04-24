@@ -13,6 +13,9 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     public bool isGrounded;
 
+    public GameObject PlayerStand;
+    public GameObject PlayerDive;
+
     public float diveLeapForce = 20.0f;
     public float diveLeapHeight = 0.1f;
 
