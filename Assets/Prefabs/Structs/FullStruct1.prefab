@@ -121,12 +121,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isIntact: 1
+  flipAxes: 0
   expPower: 1
   expRadius: 2
   Polygon: []
   Thickness: 0.1
   MinBreakArea: 0.3
-  MinImpactToBreak: 15
+  MinImpactToBreak: 28
   MinShardMass: 1
   CurrentMass: 0
   ShardClearTime: 20
@@ -278,12 +279,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isIntact: 1
+  flipAxes: 0
   expPower: 1
   expRadius: 2
   Polygon: []
   Thickness: 0.1
   MinBreakArea: 0.3
-  MinImpactToBreak: 15
+  MinImpactToBreak: 28
   MinShardMass: 1
   CurrentMass: 0
   ShardClearTime: 20
@@ -435,12 +437,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isIntact: 1
+  flipAxes: 0
   expPower: 1
   expRadius: 2
   Polygon: []
   Thickness: 0.1
   MinBreakArea: 0.3
-  MinImpactToBreak: 15
+  MinImpactToBreak: 28
   MinShardMass: 1
   CurrentMass: 0
   ShardClearTime: 20
@@ -592,12 +595,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isIntact: 1
+  flipAxes: 0
   expPower: 1
   expRadius: 1
   Polygon: []
   Thickness: 0.1
-  MinBreakArea: 0.2
-  MinImpactToBreak: 20
+  MinBreakArea: 0.4
+  MinImpactToBreak: 35
   MinShardMass: 0.6
   CurrentMass: 0
   ShardClearTime: 30
@@ -781,12 +785,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isIntact: 1
+  flipAxes: 0
   expPower: 1
   expRadius: 2
   Polygon: []
   Thickness: 0.1
   MinBreakArea: 0.3
-  MinImpactToBreak: 15
+  MinImpactToBreak: 28
   MinShardMass: 1
   CurrentMass: 0
   ShardClearTime: 20
@@ -938,12 +943,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isIntact: 1
+  flipAxes: 0
   expPower: 1
   expRadius: 2
   Polygon: []
   Thickness: 0.1
   MinBreakArea: 0.3
-  MinImpactToBreak: 15
+  MinImpactToBreak: 28
   MinShardMass: 1
   CurrentMass: 0
   ShardClearTime: 20
@@ -1095,12 +1101,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isIntact: 1
+  flipAxes: 0
   expPower: 1
   expRadius: 2
   Polygon: []
   Thickness: 0.1
   MinBreakArea: 0.3
-  MinImpactToBreak: 15
+  MinImpactToBreak: 28
   MinShardMass: 1
   CurrentMass: 0
   ShardClearTime: 20
@@ -1252,12 +1259,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isIntact: 1
+  flipAxes: 0
   expPower: 1
   expRadius: 2
   Polygon: []
   Thickness: 0.1
   MinBreakArea: 0.3
-  MinImpactToBreak: 15
+  MinImpactToBreak: 28
   MinShardMass: 1
   CurrentMass: 0
   ShardClearTime: 20
@@ -1409,12 +1417,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isIntact: 1
+  flipAxes: 0
   expPower: 1
   expRadius: 2
   Polygon: []
   Thickness: 0.1
   MinBreakArea: 0.3
-  MinImpactToBreak: 15
+  MinImpactToBreak: 28
   MinShardMass: 1
   CurrentMass: 0
   ShardClearTime: 20
@@ -1566,12 +1575,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isIntact: 1
+  flipAxes: 0
   expPower: 1
   expRadius: 2
   Polygon: []
   Thickness: 0.1
   MinBreakArea: 0.3
-  MinImpactToBreak: 15
+  MinImpactToBreak: 28
   MinShardMass: 1
   CurrentMass: 0
   ShardClearTime: 20
@@ -1723,12 +1733,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isIntact: 1
+  flipAxes: 0
   expPower: 1
   expRadius: 1
   Polygon: []
   Thickness: 0.1
-  MinBreakArea: 0.2
-  MinImpactToBreak: 20
+  MinBreakArea: 0.4
+  MinImpactToBreak: 35
   MinShardMass: 0.6
   CurrentMass: 0
   ShardClearTime: 30
@@ -1880,12 +1891,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isIntact: 1
+  flipAxes: 0
   expPower: 1
   expRadius: 2
   Polygon: []
   Thickness: 0.1
   MinBreakArea: 0.3
-  MinImpactToBreak: 15
+  MinImpactToBreak: 28
   MinShardMass: 1
   CurrentMass: 0
   ShardClearTime: 20
@@ -2037,12 +2049,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isIntact: 1
+  flipAxes: 0
   expPower: 1
   expRadius: 2
   Polygon: []
   Thickness: 0.1
   MinBreakArea: 0.3
-  MinImpactToBreak: 15
+  MinImpactToBreak: 28
   MinShardMass: 1
   CurrentMass: 0
   ShardClearTime: 20
@@ -2194,12 +2207,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isIntact: 1
+  flipAxes: 0
   expPower: 1
   expRadius: 2
   Polygon: []
   Thickness: 0.1
   MinBreakArea: 0.3
-  MinImpactToBreak: 15
+  MinImpactToBreak: 28
   MinShardMass: 1
   CurrentMass: 0
   ShardClearTime: 20
@@ -2351,12 +2365,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isIntact: 1
+  flipAxes: 0
   expPower: 1
   expRadius: 2
   Polygon: []
   Thickness: 0.1
   MinBreakArea: 0.3
-  MinImpactToBreak: 15
+  MinImpactToBreak: 28
   MinShardMass: 1
   CurrentMass: 0
   ShardClearTime: 20
@@ -2508,12 +2523,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isIntact: 1
+  flipAxes: 0
   expPower: 1
   expRadius: 2
   Polygon: []
   Thickness: 0.1
   MinBreakArea: 0.3
-  MinImpactToBreak: 15
+  MinImpactToBreak: 28
   MinShardMass: 1
   CurrentMass: 0
   ShardClearTime: 20
@@ -2665,12 +2681,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isIntact: 1
+  flipAxes: 0
   expPower: 1
   expRadius: 1
   Polygon: []
   Thickness: 0.1
-  MinBreakArea: 0.2
-  MinImpactToBreak: 20
+  MinBreakArea: 0.4
+  MinImpactToBreak: 35
   MinShardMass: 0.6
   CurrentMass: 0
   ShardClearTime: 30
@@ -2822,12 +2839,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isIntact: 1
+  flipAxes: 0
   expPower: 1
   expRadius: 1
   Polygon: []
   Thickness: 0.1
-  MinBreakArea: 0.2
-  MinImpactToBreak: 20
+  MinBreakArea: 0.4
+  MinImpactToBreak: 35
   MinShardMass: 0.6
   CurrentMass: 0
   ShardClearTime: 30
@@ -3012,12 +3030,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isIntact: 1
+  flipAxes: 0
   expPower: 1
   expRadius: 2
   Polygon: []
   Thickness: 0.1
   MinBreakArea: 0.3
-  MinImpactToBreak: 15
+  MinImpactToBreak: 28
   MinShardMass: 1
   CurrentMass: 0
   ShardClearTime: 20
@@ -3169,12 +3188,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isIntact: 1
+  flipAxes: 0
   expPower: 1
   expRadius: 2
   Polygon: []
   Thickness: 0.1
   MinBreakArea: 0.3
-  MinImpactToBreak: 15
+  MinImpactToBreak: 28
   MinShardMass: 1
   CurrentMass: 0
   ShardClearTime: 20

@@ -15,7 +15,12 @@ public class ShootBallPlayer : MonoBehaviour
     // Start is called before the first frame update
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonDown(0))
+        {
+            Shoot();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Shoot();
         }
