@@ -330,7 +330,7 @@ MonoBehaviour:
   viewAlertMaterial: {fileID: 2100000, guid: 5e30343a9b64742e0a95ed36e3a1c244, type: 2}
   viewNetralMaterial: {fileID: 2100000, guid: 52c0535bfc3d64ff48d2c34a254634d0, type: 2}
   enemyDeadMaterial: {fileID: 2100000, guid: 4975aa819bd854f90b1bb1f540cc6894, type: 2}
-  viewDistanceDefault: 30
+  viewDistanceDefault: 25
   viewAngleDefault: 80
   viewDistanceAlert: 70
   viewAngleAlert: 270
