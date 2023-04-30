@@ -36,10 +36,10 @@ public class PlayerMovement : MonoBehaviour
     {
         isGrounded = Physics.CheckSphere(transform.position, groundedModifier, groundLayer, QueryTriggerInteraction.Ignore);
 
+        // Input.GetButtonDown("Jump")
         if (
-            // Input.GetButtonDown("Jump")
-            Input.GetKeyDown(KeyCode.E)
-            // && isGrounded
+            isGrounded &&
+            (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.LeftShift))            
             )
         {
             //add dive modifier

@@ -18,7 +18,7 @@ public class ShootBallEnemy : MonoBehaviour
         
     }
 
-    void Shoot()
+    public void Shoot()
     {
         float RandomX = Random.Range(minRotation, maxRotation);
         float RandomY = Random.Range(minRotation, maxRotation);
