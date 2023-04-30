@@ -343,13 +343,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20e477df71554425f90e4cb615d8130d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerDetected: 0
   enemyView: {fileID: 5026204520170280743}
   viewFireMaterial: {fileID: 2100000, guid: cc6b9246309d141cd98aa218db14efd0, type: 2}
   viewAlertMaterial: {fileID: 2100000, guid: 5e30343a9b64742e0a95ed36e3a1c244, type: 2}
   viewNetralMaterial: {fileID: 2100000, guid: 52c0535bfc3d64ff48d2c34a254634d0, type: 2}
-  viewDistance: 50
-  viewAngle: 70
+  viewDistanceDefault: 50
+  viewAngleDefault: 90
+  viewDistanceAlert: 70
+  viewAngleAlert: 270
   obstacleMask:
     serializedVersion: 2
     m_Bits: 0
@@ -357,7 +358,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   rotationSpeed: 2
-  bulletPrefab: {fileID: 0}
   fireRate: 0.1
   firingDuration: 1.2
   pauseBetweenFiring: 0.5
+  timeUntilNeutral: 30
+  viewDistance: 50
+  viewAngle: 70

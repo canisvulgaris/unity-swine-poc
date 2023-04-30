@@ -4,30 +4,38 @@ using UnityEngine;
 
 public class EnemyVision : MonoBehaviour
 {
-    public bool playerDetected = false;
-    private bool enemyIsFiring = false;
     public GameObject enemyView;
     public Material viewFireMaterial;
     public Material viewAlertMaterial;
     public Material viewNetralMaterial;
-    public float viewDistance = 10f;
-    public float viewAngle = 45f;
+    public float viewDistanceDefault = 10f;
+    public float viewAngleDefault = 45f;
+    public float viewDistanceAlert = 70f;
+    public float viewAngleAlert = 270f;
     public LayerMask obstacleMask;
     public LayerMask targetMask;
 
-    public float rotationSpeed = 2f;
-    public GameObject bulletPrefab;
+    public float rotationSpeed = 2.0f;
     public float fireRate = 0.5f;
-
     public float firingDuration = 1.2f;
     public float pauseBetweenFiring = 0.5f;
+    public float timeUntilNeutral = 30;
+
+    private float timeSinceSeenPlayer = 0;
+    private bool playerDetected = false;
+    private bool enemyAlert = false;
+    private bool enemyIsFiring = false;
+
+    public float viewDistance;
+    public float viewAngle;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        viewDistance = viewDistanceDefault;
+        viewAngle = viewAngleDefault;
     }
 
     // Update is called once per frame
@@ -40,9 +48,22 @@ public class EnemyVision : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
         {
-            // Debug.Log(player.gameObject.name);
+            if (enemyAlert == true)
+            {
+                timeSinceSeenPlayer += Time.deltaTime;
+                if (timeSinceSeenPlayer >= timeUntilNeutral)
+                {
+                    NeutralState();
+                }
+            }
+            else {
+                enemyView.GetComponent<Renderer>().material = viewNetralMaterial;
+            }
+
+            // if enemy can see player
             if (CanSeeTarget(player.transform))
             {
+                AlertState();
                 if (enemyIsFiring == false)
                 {
                     enemyIsFiring = true;
@@ -63,18 +84,35 @@ public class EnemyVision : MonoBehaviour
         }
     }
 
+    private void AlertState()
+    {
+        timeSinceSeenPlayer = 0;
+        enemyAlert = true;
+        viewDistance = viewDistanceAlert;
+        viewAngle = viewAngleAlert;
+    }
+
+    private void NeutralState()
+    {
+        enemyAlert = false;
+        enemyView.GetComponent<Renderer>().material = viewNetralMaterial;
+        viewDistance = viewDistanceDefault;
+        viewAngle = viewAngleDefault;
+
+    }
+
     private void PlayerDetected() {
         Debug.Log("Player detected!");
         playerDetected = true;
 
-        enemyView.GetComponent<Renderer>().material = viewAlertMaterial;
+        enemyView.GetComponent<Renderer>().material = viewFireMaterial;
     }
 
     private void PlayerLost() {
         Debug.Log("Player lost!");
         playerDetected = false;
 
-        enemyView.GetComponent<Renderer>().material = viewNetralMaterial;
+        enemyView.GetComponent<Renderer>().material = viewAlertMaterial;
     }
 
     private bool CanSeeTarget(Transform target)
@@ -121,7 +159,6 @@ public class EnemyVision : MonoBehaviour
             // Fire at the player
             if (timeSinceLastFire >= fireRate)
             {
-                enemyView.GetComponent<Renderer>().material = viewFireMaterial;
                 Fire();
                 timeSinceLastFire = 0f;
             }

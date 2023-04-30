@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7734999827992282504}
   - component: {fileID: -2215713436160134967}
   - component: {fileID: 3363017723310481372}
+  - component: {fileID: 1553605682152628884}
   m_Layer: 6
   m_Name: ProjectileCubePlayer
   m_TagString: Projectile
@@ -150,3 +151,17 @@ MonoBehaviour:
   gravity: 0
   bullet_damage: 10
   bulletDebris: {fileID: 826901302643656917, guid: facffe8b910d44ee68360641c87a558d, type: 3}
+--- !u!114 &1553605682152628884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107266366453703777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 318341a5f9c8f4519a9d1f0440b7fb6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDelay: 5
+  maxDelay: 5
