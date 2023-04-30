@@ -51,12 +51,12 @@ using UnityEngine;
         }            
      }
 
-     void OnCollisionEnter(Collision collision)
+     void OnCollisionEnter(Collision coll)
      {
-        SpawnDebris(collision);
+        SpawnDebris(coll);
      }
 
-     void SpawnDebris(Collision collision) {
+     void SpawnDebris(Collision coll) {
         for (int i = 0; i < Random.Range(1, numDebris); i++) {
             GameObject debris = Instantiate(bulletDebris, transform.position + transform.forward * -1, Quaternion.identity);
             Rigidbody debrisRigidbody = debris.GetComponent<Rigidbody>();
@@ -67,7 +67,7 @@ using UnityEngine;
 
 
             // Apply the same force to the debris as the bullet collision
-            debrisRigidbody.AddForce(collision.relativeVelocity * 0.01f, ForceMode.Impulse);
+            debrisRigidbody.AddForce(coll.relativeVelocity * 0.01f, ForceMode.Impulse);
         }
         
      }

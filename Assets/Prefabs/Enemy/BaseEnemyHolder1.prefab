@@ -175,10 +175,9 @@ GameObject:
   - component: {fileID: 5700692433758363212}
   - component: {fileID: 730755974734387811}
   - component: {fileID: 3751847702196303239}
-  - component: {fileID: 8590596213741088646}
   m_Layer: 0
   m_Name: EnemyStand
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -248,27 +247,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8590596213741088646
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5595941040107184218}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7982301212462930419
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,6 +258,7 @@ GameObject:
   - component: {fileID: 4591239744458535633}
   - component: {fileID: 1400847237741807097}
   - component: {fileID: 3737354675103582757}
+  - component: {fileID: 9169267830790245512}
   m_Layer: 0
   m_Name: BaseEnemyHolder1
   m_TagString: Enemy
@@ -343,17 +322,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20e477df71554425f90e4cb615d8130d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStartingHealth: 100
+  damageScale: 1
   enemyView: {fileID: 5026204520170280743}
+  enemyModel: {fileID: 5595941040107184218}
   viewFireMaterial: {fileID: 2100000, guid: cc6b9246309d141cd98aa218db14efd0, type: 2}
   viewAlertMaterial: {fileID: 2100000, guid: 5e30343a9b64742e0a95ed36e3a1c244, type: 2}
   viewNetralMaterial: {fileID: 2100000, guid: 52c0535bfc3d64ff48d2c34a254634d0, type: 2}
+  enemyDeadMaterial: {fileID: 2100000, guid: 4975aa819bd854f90b1bb1f540cc6894, type: 2}
   viewDistanceDefault: 50
   viewAngleDefault: 90
   viewDistanceAlert: 70
   viewAngleAlert: 270
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   targetMask:
     serializedVersion: 2
     m_Bits: 1
@@ -364,3 +347,24 @@ MonoBehaviour:
   timeUntilNeutral: 30
   viewDistance: 50
   viewAngle: 70
+--- !u!65 &9169267830790245512
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7982301212462930419}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9, y: 2.3, z: 1.1}
+  m_Center: {x: 0, y: 0, z: 0.1}

@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class EnemyVision : MonoBehaviour
 {
+    public float enemyStartingHealth = 100f;
+    public float damageScale = 1f;
     public GameObject enemyView;
+    public GameObject enemyModel;
     public Material viewFireMaterial;
     public Material viewAlertMaterial;
     public Material viewNetralMaterial;
+    public Material enemyDeadMaterial;
     public float viewDistanceDefault = 10f;
     public float viewAngleDefault = 45f;
     public float viewDistanceAlert = 70f;
@@ -26,6 +30,8 @@ public class EnemyVision : MonoBehaviour
     private bool enemyAlert = false;
     private bool enemyIsFiring = false;
 
+    private bool enemyAlive = true;
+
     public float viewDistance;
     public float viewAngle;
 
@@ -36,6 +42,7 @@ public class EnemyVision : MonoBehaviour
     {
         viewDistance = viewDistanceDefault;
         viewAngle = viewAngleDefault;
+        enemyAlive = true;
     }
 
     // Update is called once per frame
@@ -45,46 +52,57 @@ public class EnemyVision : MonoBehaviour
 
     void FixedUpdate()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player != null)
+        if (enemyAlive && enemyStartingHealth <= 0)
         {
-            if (enemyAlert == true)
+            enemyAlive = false;
+            enemyModel.GetComponent<Renderer>().material = enemyDeadMaterial;
+        }
+        
+        if (enemyAlive)
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
             {
-                timeSinceSeenPlayer += Time.deltaTime;
-                if (timeSinceSeenPlayer >= timeUntilNeutral)
+                if (enemyAlert == true)
                 {
-                    NeutralState();
+                    timeSinceSeenPlayer += Time.deltaTime;
+                    if (timeSinceSeenPlayer >= timeUntilNeutral)
+                    {
+                        NeutralState();
+                    }
                 }
-            }
-            else {
-                enemyView.GetComponent<Renderer>().material = viewNetralMaterial;
-            }
+                else
+                {
+                    enemyView.GetComponent<Renderer>().material = viewNetralMaterial;
+                }
 
-            // if enemy can see player
-            if (CanSeeTarget(player.transform))
-            {
-                AlertState();
-                if (enemyIsFiring == false)
+                // if enemy can see player
+                if (CanSeeTarget(player.transform))
                 {
-                    enemyIsFiring = true;
-                    StartCoroutine(RotateAndFire(player.transform));
+                    AlertState();
+                    if (enemyIsFiring == false)
+                    {
+                        enemyIsFiring = true;
+                        StartCoroutine(RotateAndFire(player.transform));
+                    }
+
+                    if (playerDetected == false)
+                    {
+                        PlayerDetected();
+                    }
                 }
-                
-                if (playerDetected == false)
+                else
                 {
-                    PlayerDetected();
-                }
-            }
-            else {
-                if (playerDetected == true)
-                {
-                    PlayerLost();
+                    if (playerDetected == true)
+                    {
+                        PlayerLost();
+                    }
                 }
             }
         }
     }
 
-    private void AlertState()
+    public void AlertState()
     {
         timeSinceSeenPlayer = 0;
         enemyAlert = true;
@@ -92,7 +110,13 @@ public class EnemyVision : MonoBehaviour
         viewAngle = viewAngleAlert;
     }
 
-    private void NeutralState()
+    public void TurnToFacePlayer()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        CanSeeTarget(player.transform);
+    }
+
+    public void NeutralState()
     {
         enemyAlert = false;
         enemyView.GetComponent<Renderer>().material = viewNetralMaterial;
@@ -102,14 +126,14 @@ public class EnemyVision : MonoBehaviour
     }
 
     private void PlayerDetected() {
-        Debug.Log("Player detected!");
+        // Debug.Log("Player detected!");
         playerDetected = true;
 
         enemyView.GetComponent<Renderer>().material = viewFireMaterial;
     }
 
     private void PlayerLost() {
-        Debug.Log("Player lost!");
+        // Debug.Log("Player lost!");
         playerDetected = false;
 
         enemyView.GetComponent<Renderer>().material = viewAlertMaterial;
@@ -157,7 +181,7 @@ public class EnemyVision : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
             // Fire at the player
-            if (timeSinceLastFire >= fireRate)
+            if (timeSinceLastFire >= fireRate && enemyAlive)
             {
                 Fire();
                 timeSinceLastFire = 0f;
@@ -184,5 +208,15 @@ public class EnemyVision : MonoBehaviour
     private void Fire()
     {
         enemyView.GetComponent<ShootBallEnemy>().Shoot();
+    }
+
+    void OnCollisionEnter(Collision coll)
+    {
+        if (coll.gameObject.tag == "Projectile")
+        {
+            AlertState();
+            Debug.Log("damage " + coll.relativeVelocity.magnitude);
+            enemyStartingHealth -= coll.relativeVelocity.magnitude * damageScale;
+        }
     }
 }
