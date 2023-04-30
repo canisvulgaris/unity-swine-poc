@@ -259,6 +259,7 @@ GameObject:
   - component: {fileID: 1400847237741807097}
   - component: {fileID: 3737354675103582757}
   - component: {fileID: 9169267830790245512}
+  - component: {fileID: 4194177466372872281}
   m_Layer: 0
   m_Name: BaseEnemyHolder1
   m_TagString: Enemy
@@ -366,3 +367,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.9, y: 2.3, z: 1.1}
   m_Center: {x: 0, y: 0, z: 0.1}
+--- !u!195 &4194177466372872281
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7982301212462930419}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

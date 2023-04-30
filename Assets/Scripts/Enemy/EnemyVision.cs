@@ -34,6 +34,8 @@ public class EnemyVision : MonoBehaviour
 
     private float viewDistance;
     private float viewAngle;
+    private UnityEngine.AI.NavMeshAgent agent;
+    private Transform lastKnownPlayerPosition;
 
 
 
@@ -43,6 +45,7 @@ public class EnemyVision : MonoBehaviour
         viewDistance = viewDistanceDefault;
         viewAngle = viewAngleDefault;
         enemyAlive = true;
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -55,6 +58,7 @@ public class EnemyVision : MonoBehaviour
         if (enemyAlive && enemyStartingHealth <= 0)
         {
             enemyAlive = false;
+            agent.isStopped = true;
             enemyModel.GetComponent<Renderer>().material = enemyDeadMaterial;
         }
         
@@ -79,6 +83,7 @@ public class EnemyVision : MonoBehaviour
                 // if enemy can see player
                 if (CanSeeTarget(player.transform))
                 {
+                    lastKnownPlayerPosition = player.transform;
                     AlertState();
                     if (enemyIsFiring == false)
                     {
@@ -135,8 +140,8 @@ public class EnemyVision : MonoBehaviour
     private void PlayerLost() {
         // Debug.Log("Player lost!");
         playerDetected = false;
-
         enemyView.GetComponent<Renderer>().material = viewAlertMaterial;
+        agent.SetDestination(lastKnownPlayerPosition.position);
     }
 
     private bool CanSeeTarget(Transform target)
