@@ -32,8 +32,8 @@ public class EnemyVision : MonoBehaviour
 
     private bool enemyAlive = true;
 
-    public float viewDistance;
-    public float viewAngle;
+    private float viewDistance;
+    private float viewAngle;
 
 
 
@@ -215,7 +215,7 @@ public class EnemyVision : MonoBehaviour
         if (coll.gameObject.tag == "Projectile")
         {
             AlertState();
-            Debug.Log("damage " + coll.relativeVelocity.magnitude);
+            Debug.Log("enemy damaged " + coll.relativeVelocity.magnitude);
             enemyStartingHealth -= coll.relativeVelocity.magnitude * damageScale;
         }
     }

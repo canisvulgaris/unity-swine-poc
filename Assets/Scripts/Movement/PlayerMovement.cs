@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public float playerStartingHealth = 100f;
+    public float damageScale = 1f;
+    public Material playerDeadMaterial;
+    public GameObject playerModel;
     public float moveSpeed = 13.0f;
     public float jumpForce = 5.0f;
 
@@ -85,6 +89,23 @@ public class PlayerMovement : MonoBehaviour
         activelyPostDiving = true;
         yield return new WaitForSeconds(divePostTime);
         activelyPostDiving = false;
+    }
+
+    void OnCollisionEnter(Collision coll)
+    {
+        if (coll.gameObject.tag == "Projectile")
+        {
+            Debug.Log("player damaged " + coll.relativeVelocity.magnitude);
+            playerStartingHealth -= coll.relativeVelocity.magnitude * damageScale;
+            if (playerStartingHealth <= 0)
+            {
+                PlayerDead();
+            }
+        }
+    }
+
+    public void PlayerDead() {
+        playerModel.GetComponent<Renderer>().material = playerDeadMaterial;
     }
 
 
