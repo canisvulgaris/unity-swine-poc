@@ -160,6 +160,7 @@ public class EnemyVision : MonoBehaviour
                 {
                     if (hit.transform == target)
                     {
+                        // Debug.DrawLine (transform.position, target.position, Color.blue, 5.0f);
                         return true;
                     }
                 }

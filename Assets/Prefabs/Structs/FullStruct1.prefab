@@ -3309,6 +3309,7 @@ GameObject:
   - component: {fileID: 4353593396308268747}
   - component: {fileID: 2293123963081197750}
   - component: {fileID: 6840531897282532298}
+  - component: {fileID: 7228373068553667004}
   m_Layer: 0
   m_Name: SingleTile
   m_TagString: Untagged
@@ -3416,3 +3417,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentOuter: {fileID: 2731641672762881021}
   parentDetail: {fileID: 8455749852224860982}
+--- !u!65 &7228373068553667004
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8604119601229058832}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
