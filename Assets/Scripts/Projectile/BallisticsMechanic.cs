@@ -7,6 +7,8 @@ using UnityEngine;
     public float bullet_firing_velocity,gravity,bullet_damage;
     public GameObject bulletDebris;
 
+    public float ambientEffect = 10.0f;
+
     private int numDebris = 5;
     private float debrisSpeed = 1f;
     private float minDebrisAngle = -10f;
@@ -45,7 +47,7 @@ using UnityEngine;
 
         if (Physics.Linecast(last_position, current_position, out hit, mask))
         {
-            hit.transform.SendMessage("AddDamage", bullet_damage, SendMessageOptions.DontRequireReceiver); //Send Damage message to hit object
+            //hit.transform.SendMessage("AddDamage", bullet_damage, SendMessageOptions.DontRequireReceiver); //Send Damage message to hit object
             Debug.DrawLine (original_position, current_position, Color.red, 0.2f);
             Destroy(gameObject);
         }            
@@ -53,7 +55,14 @@ using UnityEngine;
 
      void OnCollisionEnter(Collision coll)
      {
-        SpawnDebris(coll);
+         // alert other enemies in a specific radius
+         int enemyLayerMask = 1 << LayerMask.NameToLayer("Enemy");
+         Collider[] colliders = Physics.OverlapSphere(transform.position, ambientEffect, enemyLayerMask);
+         foreach (Collider c in colliders) {
+            Debug.Log(c.gameObject.name);
+            c.gameObject.SendMessage("HeardSomething", transform, SendMessageOptions.DontRequireReceiver);
+         }
+         SpawnDebris(coll);
      }
 
      void SpawnDebris(Collision coll) {

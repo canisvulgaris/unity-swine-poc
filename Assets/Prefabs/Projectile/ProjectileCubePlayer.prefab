@@ -151,6 +151,7 @@ MonoBehaviour:
   gravity: 0
   bullet_damage: 10
   bulletDebris: {fileID: 826901302643656917, guid: facffe8b910d44ee68360641c87a558d, type: 3}
+  ambientEffect: 5
 --- !u!114 &1553605682152628884
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -115,6 +115,16 @@ public class EnemyVision : MonoBehaviour
         viewAngle = viewAngleAlert;
     }
 
+    public void HeardSomething(Transform target)
+    {
+        // Debug.Log("Heard something!");
+        timeSinceSeenPlayer = 0;
+        enemyAlert = true;
+        viewDistance = viewDistanceAlert;
+        viewAngle = viewAngleAlert;
+        agent.SetDestination(target.position);
+    }
+
     public void TurnToFacePlayer()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");

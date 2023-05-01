@@ -22,7 +22,7 @@ public class NavMeshUpdate : MonoBehaviour
 
     void RebuildNavMesh()
     {
-        Debug.Log("Rebuilding NavMesh");
+        // Debug.Log("Rebuilding NavMesh");
         surface.BuildNavMesh();
     }
 }
