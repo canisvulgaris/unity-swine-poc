@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1553605682152628884}
   m_Layer: 6
   m_Name: ProjectileCubePlayer
-  m_TagString: Projectile
+  m_TagString: ProjectilePlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,7 +151,7 @@ MonoBehaviour:
   gravity: 0
   bullet_damage: 10
   bulletDebris: {fileID: 826901302643656917, guid: facffe8b910d44ee68360641c87a558d, type: 3}
-  ambientEffect: 5
+  ambientEffect: 8
 --- !u!114 &1553605682152628884
 MonoBehaviour:
   m_ObjectHideFlags: 0

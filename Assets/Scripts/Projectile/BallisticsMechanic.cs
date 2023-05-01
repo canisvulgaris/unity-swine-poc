@@ -55,14 +55,18 @@ using UnityEngine;
 
      void OnCollisionEnter(Collision coll)
      {
-         // alert other enemies in a specific radius
-         int enemyLayerMask = 1 << LayerMask.NameToLayer("Enemy");
-         Collider[] colliders = Physics.OverlapSphere(transform.position, ambientEffect, enemyLayerMask);
-         foreach (Collider c in colliders) {
-            Debug.Log(c.gameObject.name);
-            c.gameObject.SendMessage("HeardSomething", transform, SendMessageOptions.DontRequireReceiver);
-         }
-         SpawnDebris(coll);
+        // alert other enemies in a specific radius
+        if (coll.gameObject.tag != "Enemy")
+        {
+            int enemyLayerMask = 1 << LayerMask.NameToLayer("Enemy");
+            Collider[] colliders = Physics.OverlapSphere(transform.position, ambientEffect, enemyLayerMask);
+            foreach (Collider c in colliders)
+            {
+                Debug.Log(c.gameObject.name);
+                c.gameObject.SendMessage("HeardSomething", transform, SendMessageOptions.DontRequireReceiver);
+            }
+        }
+        SpawnDebris(coll);
      }
 
      void SpawnDebris(Collision coll) {

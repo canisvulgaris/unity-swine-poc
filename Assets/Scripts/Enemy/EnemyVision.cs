@@ -8,6 +8,7 @@ public class EnemyVision : MonoBehaviour
     public float damageScale = 1f;
     public GameObject enemyView;
     public GameObject enemyModel;
+    public GameObject enemyLight;
     public Material viewFireMaterial;
     public Material viewAlertMaterial;
     public Material viewNetralMaterial;
@@ -37,11 +38,10 @@ public class EnemyVision : MonoBehaviour
     private UnityEngine.AI.NavMeshAgent agent;
     private Transform lastKnownPlayerPosition;
 
-
-
     // Start is called before the first frame update
     void Start()
     {
+        enemyLight.GetComponent<Light>().enabled = false;
         viewDistance = viewDistanceDefault;
         viewAngle = viewAngleDefault;
         enemyAlive = true;
@@ -60,6 +60,7 @@ public class EnemyVision : MonoBehaviour
             enemyAlive = false;
             agent.isStopped = true;
             enemyModel.GetComponent<Renderer>().material = enemyDeadMaterial;
+            enemyView.GetComponent<Renderer>().material = enemyDeadMaterial;
         }
         
         if (enemyAlive)
@@ -109,49 +110,67 @@ public class EnemyVision : MonoBehaviour
 
     public void AlertState()
     {
-        timeSinceSeenPlayer = 0;
-        enemyAlert = true;
-        viewDistance = viewDistanceAlert;
-        viewAngle = viewAngleAlert;
+        if (enemyAlive)
+        {
+            timeSinceSeenPlayer = 0;
+            enemyAlert = true;
+            viewDistance = viewDistanceAlert;
+            viewAngle = viewAngleAlert;
+            enemyView.GetComponent<Renderer>().material = viewAlertMaterial;
+            enemyLight.GetComponent<Light>().enabled = true;
+        }
     }
 
     public void HeardSomething(Transform target)
     {
-        // Debug.Log("Heard something!");
-        timeSinceSeenPlayer = 0;
-        enemyAlert = true;
-        viewDistance = viewDistanceAlert;
-        viewAngle = viewAngleAlert;
-        agent.SetDestination(target.position);
+        // Debug.Log("Heard something!");        
+        if (playerDetected == false && enemyAlive == true)
+        {
+            enemyAlert = true;
+            viewDistance = viewDistanceAlert;
+            viewAngle = viewAngleAlert;
+            agent.SetDestination(target.position);
+        }
     }
 
     public void TurnToFacePlayer()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        CanSeeTarget(player.transform);
+        if (enemyAlive)
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            CanSeeTarget(player.transform);
+        }
     }
 
     public void NeutralState()
     {
-        enemyAlert = false;
-        enemyView.GetComponent<Renderer>().material = viewNetralMaterial;
-        viewDistance = viewDistanceDefault;
-        viewAngle = viewAngleDefault;
-
+        if (enemyAlive) {
+            enemyAlert = false;
+            enemyView.GetComponent<Renderer>().material = viewNetralMaterial;
+            viewDistance = viewDistanceDefault;
+            viewAngle = viewAngleDefault;
+            enemyLight.GetComponent<Light>().enabled = false;
+        }
     }
 
     private void PlayerDetected() {
-        // Debug.Log("Player detected!");
-        playerDetected = true;
+        if (enemyAlive)
+        {
+            // Debug.Log("Player detected!");
+            playerDetected = true;
 
-        enemyView.GetComponent<Renderer>().material = viewFireMaterial;
+            enemyView.GetComponent<Renderer>().material = viewFireMaterial;
+        }
     }
 
     private void PlayerLost() {
-        // Debug.Log("Player lost!");
-        playerDetected = false;
-        enemyView.GetComponent<Renderer>().material = viewAlertMaterial;
-        agent.SetDestination(lastKnownPlayerPosition.position);
+        if (enemyAlive)
+        {
+            // Debug.Log("Player lost!");
+            playerDetected = false;
+            enemyView.GetComponent<Renderer>().material = viewAlertMaterial;
+            agent.SetDestination(lastKnownPlayerPosition.position);
+        }
     }
 
     private bool CanSeeTarget(Transform target)
@@ -197,7 +216,7 @@ public class EnemyVision : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
             // Fire at the player
-            if (timeSinceLastFire >= fireRate && enemyAlive)
+            if (timeSinceLastFire >= fireRate && enemyAlive == true)
             {
                 Fire();
                 timeSinceLastFire = 0f;
@@ -228,7 +247,7 @@ public class EnemyVision : MonoBehaviour
 
     void OnCollisionEnter(Collision coll)
     {
-        if (coll.gameObject.tag == "Projectile")
+        if (coll.gameObject.tag == "ProjectilePlayer" && enemyAlive == true)
         {
             AlertState();
             Debug.Log("enemy damaged " + coll.relativeVelocity.magnitude);
