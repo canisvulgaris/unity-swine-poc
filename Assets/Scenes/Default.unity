@@ -4269,11 +4269,19 @@ PrefabInstance:
       objectReference: {fileID: 23800000, guid: 2cf321c7182474edeb4717c012d36098, type: 2}
     - target: {fileID: 1242192317692923199, guid: 048f4772d4ef7443ab9218f747887509, type: 3}
       propertyPath: m_MinRegionArea
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1242192317692923199, guid: 048f4772d4ef7443ab9218f747887509, type: 3}
+      propertyPath: m_BuildHeightMesh
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1242192317692923199, guid: 048f4772d4ef7443ab9218f747887509, type: 3}
       propertyPath: m_LayerMask.m_Bits
       value: 281
+      objectReference: {fileID: 0}
+    - target: {fileID: 5625734837861581115, guid: 048f4772d4ef7443ab9218f747887509, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6321780776952519634, guid: 048f4772d4ef7443ab9218f747887509, type: 3}
       propertyPath: m_RootOrder

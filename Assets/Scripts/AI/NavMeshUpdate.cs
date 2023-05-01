@@ -6,11 +6,12 @@ using Unity.AI.Navigation;
 public class NavMeshUpdate : MonoBehaviour
 {
     private NavMeshSurface surface;
+    public float refreshTime = 1;
     // Start is called before the first frame update
     void Start()
     {
         surface = GetComponent<NavMeshSurface>();
-        InvokeRepeating("RebuildNavMesh", 3, 3);
+        InvokeRepeating("RebuildNavMesh", refreshTime, refreshTime);
     }
 
     // Update is called once per frame

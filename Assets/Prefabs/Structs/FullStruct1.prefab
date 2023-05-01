@@ -132,6 +132,9 @@ MonoBehaviour:
   MinShardMass: 1
   CurrentMass: 0
   ShardClearTime: 20
+  debrisMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!54 &3326196089809072913
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -291,6 +294,9 @@ MonoBehaviour:
   MinShardMass: 1
   CurrentMass: 0
   ShardClearTime: 20
+  debrisMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!54 &3574378602018719389
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -450,6 +456,9 @@ MonoBehaviour:
   MinShardMass: 1
   CurrentMass: 0
   ShardClearTime: 20
+  debrisMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!54 &5205248630147553152
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -609,6 +618,9 @@ MonoBehaviour:
   MinShardMass: 0.6
   CurrentMass: 0
   ShardClearTime: 30
+  debrisMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!54 &6091006477073944831
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -800,6 +812,9 @@ MonoBehaviour:
   MinShardMass: 1
   CurrentMass: 0
   ShardClearTime: 20
+  debrisMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!54 &7070102723055835559
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -959,6 +974,9 @@ MonoBehaviour:
   MinShardMass: 1
   CurrentMass: 0
   ShardClearTime: 20
+  debrisMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!54 &8835433070871442026
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1118,6 +1136,9 @@ MonoBehaviour:
   MinShardMass: 1
   CurrentMass: 0
   ShardClearTime: 20
+  debrisMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!54 &1587012082489462354
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1277,6 +1298,9 @@ MonoBehaviour:
   MinShardMass: 1
   CurrentMass: 0
   ShardClearTime: 20
+  debrisMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!54 &227359599262060872
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1436,6 +1460,9 @@ MonoBehaviour:
   MinShardMass: 1
   CurrentMass: 0
   ShardClearTime: 20
+  debrisMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!54 &3125856073100983436
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1595,6 +1622,9 @@ MonoBehaviour:
   MinShardMass: 1
   CurrentMass: 0
   ShardClearTime: 20
+  debrisMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!54 &1215497372660246830
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1754,6 +1784,9 @@ MonoBehaviour:
   MinShardMass: 0.6
   CurrentMass: 0
   ShardClearTime: 30
+  debrisMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!54 &6292178842380572239
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1913,6 +1946,9 @@ MonoBehaviour:
   MinShardMass: 1
   CurrentMass: 0
   ShardClearTime: 20
+  debrisMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!54 &5776779155484879023
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2072,6 +2108,9 @@ MonoBehaviour:
   MinShardMass: 1
   CurrentMass: 0
   ShardClearTime: 20
+  debrisMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!54 &1960893325008250803
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2231,6 +2270,9 @@ MonoBehaviour:
   MinShardMass: 1
   CurrentMass: 0
   ShardClearTime: 20
+  debrisMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!54 &807252736935011482
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2390,6 +2432,9 @@ MonoBehaviour:
   MinShardMass: 1
   CurrentMass: 0
   ShardClearTime: 20
+  debrisMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!54 &7495456035817053865
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2549,6 +2594,9 @@ MonoBehaviour:
   MinShardMass: 1
   CurrentMass: 0
   ShardClearTime: 20
+  debrisMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!54 &6194623291606100384
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2708,6 +2756,9 @@ MonoBehaviour:
   MinShardMass: 0.6
   CurrentMass: 0
   ShardClearTime: 30
+  debrisMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!54 &2158272329410788531
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2867,6 +2918,9 @@ MonoBehaviour:
   MinShardMass: 0.6
   CurrentMass: 0
   ShardClearTime: 30
+  debrisMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!54 &4855393839537468671
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3059,6 +3113,9 @@ MonoBehaviour:
   MinShardMass: 1
   CurrentMass: 0
   ShardClearTime: 20
+  debrisMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!54 &3079650926022087180
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3218,6 +3275,9 @@ MonoBehaviour:
   MinShardMass: 1
   CurrentMass: 0
   ShardClearTime: 20
+  debrisMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!54 &2130556385316490008
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4032256214520073544}
   - component: {fileID: 3196299687258442984}
   - component: {fileID: 7135447174601268121}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ProjectileBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,4 +146,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 318341a5f9c8f4519a9d1f0440b7fb6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 2
+  minDelay: 0.5
+  maxDelay: 2

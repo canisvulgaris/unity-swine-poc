@@ -208,6 +208,8 @@ namespace GK
                         var newGo = Instantiate(gameObject, transform.parent);
 
                         newGo.transform.localPosition = transform.localPosition;
+                        newGo.layer = LayerMask.NameToLayer("Debris");
+
                         if (flipAxes)
                         {
                             newGo.transform.localRotation = transform.localRotation * Quaternion.Euler(90, 0, 0);
