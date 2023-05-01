@@ -4144,6 +4144,42 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2035813471343204843, guid: 62d7c5a679491446bb111d018ef3abc3, type: 3}
+      propertyPath: m_Range
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035813471343204843, guid: 62d7c5a679491446bb111d018ef3abc3, type: 3}
+      propertyPath: m_Color.b
+      value: 0.084820986
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035813471343204843, guid: 62d7c5a679491446bb111d018ef3abc3, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035813471343204843, guid: 62d7c5a679491446bb111d018ef3abc3, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035813471343204843, guid: 62d7c5a679491446bb111d018ef3abc3, type: 3}
+      propertyPath: m_DrawHalo
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035813471343204843, guid: 62d7c5a679491446bb111d018ef3abc3, type: 3}
+      propertyPath: m_Shadows.m_Bias
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035813471343204843, guid: 62d7c5a679491446bb111d018ef3abc3, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035813471343204843, guid: 62d7c5a679491446bb111d018ef3abc3, type: 3}
+      propertyPath: m_Shadows.m_Strength
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035813471343204843, guid: 62d7c5a679491446bb111d018ef3abc3, type: 3}
+      propertyPath: m_Shadows.m_NearPlane
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6321953773978394788, guid: 62d7c5a679491446bb111d018ef3abc3, type: 3}
       propertyPath: m_Name
       value: PlayerHolder
