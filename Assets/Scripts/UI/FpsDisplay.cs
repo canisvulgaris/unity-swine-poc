@@ -13,36 +13,37 @@ public class FpsDisplay : MonoBehaviour
     private int frames;
     private float timeElapsed;
 
-    void Start()
+    private float count;
+    
+    private IEnumerator Start()
     {
-        GameObject fpsObject = new GameObject("FpsText");
-        fpsObject.transform.SetParent(transform);
-
-        fpsText = fpsObject.AddComponent<Text>();
-        fpsText.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-        fpsText.fontSize = fontSize;
-        fpsText.color = textColor;
-        fpsText.horizontalOverflow = HorizontalWrapMode.Overflow;
-        fpsText.verticalOverflow = VerticalWrapMode.Overflow;
-
-        RectTransform rectTransform = fpsText.GetComponent<RectTransform>();
-        rectTransform.anchorMin = new Vector2(1, 1);
-        rectTransform.anchorMax = new Vector2(1, 1);
-        rectTransform.pivot = new Vector2(1, 1);
-        rectTransform.anchoredPosition = -margin;
-    }
-
-    void Update()
-    {
-        frames++;
-        timeElapsed += Time.deltaTime;
-
-        if (timeElapsed >= 1f)
+        GUI.depth = 2;
+        while (true)
         {
-            int fps = Mathf.RoundToInt(frames / timeElapsed);
-            fpsText.text = fps.ToString() + " FPS";
-            frames = 0;
-            timeElapsed = 0;
+            count = 1f / Time.unscaledDeltaTime;
+            yield return new WaitForSeconds(0.1f);
         }
     }
+    
+    // private void OnGUI()
+    // {
+    //     GUI.Label(new Rect(5, 40, 100, 25), "FPS: " + Mathf.Round(count));
+    // }
+
+    private void OnGUI()
+    {
+        DrawFPS();
+
+    }
+
+    private void DrawFPS() {
+        Rect location = new Rect(5, 5, 85, 25);
+        string text = $"FPS: {Mathf.Round(count)}";
+        Texture black = Texture2D.linearGrayTexture;
+        GUI.DrawTexture(location, black, ScaleMode.StretchToFill);
+        GUI.color = Color.black;
+        GUI.skin.label.fontSize = 18;
+        GUI.Label(location, text);
+    }
+
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public GameObject console;
     public float playerStartingHealth = 100f;
     public float damageScale = 1f;
     public Material playerDeadMaterial;
@@ -106,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void PlayerDead() {
         playerModel.GetComponent<Renderer>().material = playerDeadMaterial;
+        console.SendMessage("ShowFail"); //Send Damage message to hit object
     }
-
 
 }

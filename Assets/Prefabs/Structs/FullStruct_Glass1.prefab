@@ -128,13 +128,10 @@ MonoBehaviour:
   Polygon: []
   Thickness: 0.05
   MinBreakArea: 0.2
-  MinImpactToBreak: 5
+  MinImpactToBreak: 1
   MinShardMass: 0.1
   CurrentMass: 0
   ShardClearTime: 20
-  debrisMask:
-    serializedVersion: 2
-    m_Bits: 1024
 --- !u!54 &7904128380235239759
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -329,13 +326,10 @@ MonoBehaviour:
   Polygon: []
   Thickness: 0.05
   MinBreakArea: 0.2
-  MinImpactToBreak: 5
+  MinImpactToBreak: 1
   MinShardMass: 0.1
   CurrentMass: 0
   ShardClearTime: 20
-  debrisMask:
-    serializedVersion: 2
-    m_Bits: 1024
 --- !u!54 &565845022875021733
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -491,13 +485,10 @@ MonoBehaviour:
   Polygon: []
   Thickness: 0.05
   MinBreakArea: 0.2
-  MinImpactToBreak: 5
+  MinImpactToBreak: 1
   MinShardMass: 0.1
   CurrentMass: 0
   ShardClearTime: 20
-  debrisMask:
-    serializedVersion: 2
-    m_Bits: 1024
 --- !u!54 &8408966196692389951
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -806,13 +797,10 @@ MonoBehaviour:
   Polygon: []
   Thickness: 0.05
   MinBreakArea: 0.2
-  MinImpactToBreak: 5
+  MinImpactToBreak: 1
   MinShardMass: 0.1
   CurrentMass: 0
   ShardClearTime: 20
-  debrisMask:
-    serializedVersion: 2
-    m_Bits: 1024
 --- !u!54 &4839471754684378052
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -968,13 +956,10 @@ MonoBehaviour:
   Polygon: []
   Thickness: 0.05
   MinBreakArea: 0.2
-  MinImpactToBreak: 5
+  MinImpactToBreak: 1
   MinShardMass: 0.1
   CurrentMass: 0
   ShardClearTime: 20
-  debrisMask:
-    serializedVersion: 2
-    m_Bits: 1024
 --- !u!54 &2788248642420027173
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1130,13 +1115,10 @@ MonoBehaviour:
   Polygon: []
   Thickness: 0.05
   MinBreakArea: 0.2
-  MinImpactToBreak: 5
+  MinImpactToBreak: 1
   MinShardMass: 0.1
   CurrentMass: 0
   ShardClearTime: 20
-  debrisMask:
-    serializedVersion: 2
-    m_Bits: 1024
 --- !u!54 &5849885846987067465
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1292,13 +1274,10 @@ MonoBehaviour:
   Polygon: []
   Thickness: 0.05
   MinBreakArea: 0.2
-  MinImpactToBreak: 5
+  MinImpactToBreak: 1
   MinShardMass: 0.1
   CurrentMass: 0
   ShardClearTime: 20
-  debrisMask:
-    serializedVersion: 2
-    m_Bits: 1024
 --- !u!54 &992219568025236197
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1454,13 +1433,10 @@ MonoBehaviour:
   Polygon: []
   Thickness: 0.05
   MinBreakArea: 0.2
-  MinImpactToBreak: 5
+  MinImpactToBreak: 1
   MinShardMass: 0.1
   CurrentMass: 0
   ShardClearTime: 20
-  debrisMask:
-    serializedVersion: 2
-    m_Bits: 1024
 --- !u!54 &5871586363432256644
 Rigidbody:
   m_ObjectHideFlags: 0

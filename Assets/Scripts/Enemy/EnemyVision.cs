@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyVision : MonoBehaviour
 {
+    public GameObject console;
     public float enemyStartingHealth = 100f;
     public float damageScale = 1f;
     public GameObject enemyView;
@@ -61,6 +62,7 @@ public class EnemyVision : MonoBehaviour
             agent.isStopped = true;
             enemyModel.GetComponent<Renderer>().material = enemyDeadMaterial;
             enemyView.GetComponent<Renderer>().material = enemyDeadMaterial;
+            console.SendMessage("ReduceEnemyCount");
         }
         
         if (enemyAlive)
