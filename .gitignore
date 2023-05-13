@@ -62,3 +62,6 @@ sysinfo.txt
 crashlytics-build.properties
 
 .DS_Store
+
+#ignore compiled versions
+Export/
