@@ -18,9 +18,6 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     public bool isGrounded;
 
-    public GameObject PlayerStand;
-    public GameObject PlayerDive;
-
     public float diveLeapForce = 20.0f;
     public float diveLeapHeight = 0.1f;
 
@@ -33,9 +30,12 @@ public class PlayerMovement : MonoBehaviour
     private float horizontalInput;
     private float verticalInput;
 
+    private Animator animator;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        animator = playerModel.GetComponent<Animator>();
     }
     void Update()
     {
@@ -64,6 +64,20 @@ public class PlayerMovement : MonoBehaviour
         {
             horizontalInput = Input.GetAxis("Horizontal");
             verticalInput = Input.GetAxis("Vertical");
+            // animator.SetBool("Moving", false);
+            // animator.SetFloat("Speed", Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
+        }
+
+        float currentSpeed = Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput);
+
+
+        if (currentSpeed > 0.1f) {
+            animator.SetBool("Moving", true);
+            animator.SetFloat("Speed", currentSpeed);
+        }
+        else {
+            animator.SetBool("Moving", false);
+            animator.SetFloat("Speed", 0);
         }
         
         if (activelyDiving == true)
@@ -106,7 +120,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void PlayerDead() {
-        playerModel.GetComponent<Renderer>().material = playerDeadMaterial;
+        // playerModel.GetComponent<Renderer>().material = playerDeadMaterial;
         console.SendMessage("ShowFail"); //Send Damage message to hit object
     }
 
