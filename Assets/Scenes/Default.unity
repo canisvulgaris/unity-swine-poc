@@ -4571,6 +4571,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerHolder
       objectReference: {fileID: 0}
+    - target: {fileID: 6469793187049307918, guid: 62d7c5a679491446bb111d018ef3abc3, type: 3}
+      propertyPath: ballOffset
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6747768848364264129, guid: 62d7c5a679491446bb111d018ef3abc3, type: 3}
       propertyPath: console
       value: 
