@@ -1288,6 +1288,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2244431305011044482, guid: 3ddd16c8e1c44435f8945ebda2b7ecda, type: 3}
   m_PrefabInstance: {fileID: 523318830}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &528716722 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7048881202176246711, guid: 62d7c5a679491446bb111d018ef3abc3, type: 3}
+  m_PrefabInstance: {fileID: 986606591855765983}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &537432574
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4570,6 +4575,10 @@ PrefabInstance:
       propertyPath: console
       value: 
       objectReference: {fileID: 1828408596}
+    - target: {fileID: 6747768848364264129, guid: 62d7c5a679491446bb111d018ef3abc3, type: 3}
+      propertyPath: playerObject
+      value: 
+      objectReference: {fileID: 528716722}
     - target: {fileID: 7156822812244918841, guid: 62d7c5a679491446bb111d018ef3abc3, type: 3}
       propertyPath: mainCamera
       value: 

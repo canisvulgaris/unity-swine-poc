@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public float playerStartingHealth = 100f;
     public float damageScale = 1f;
     public Material playerDeadMaterial;
+
+    public GameObject playerObject;
     public GameObject playerModel;
     public float moveSpeed = 13.0f;
     public float jumpForce = 5.0f;
@@ -29,11 +31,12 @@ public class PlayerMovement : MonoBehaviour
 
     private float horizontalInput;
     private float verticalInput;
-
+    private Vector3 lastPosition;
     private Animator animator;
 
     void Start()
     {
+        lastPosition = transform.position;
         rb = GetComponent<Rigidbody>();
         animator = playerModel.GetComponent<Animator>();
     }
@@ -61,9 +64,31 @@ public class PlayerMovement : MonoBehaviour
         float moveHeightModifier = 0.0f;
 
         if (!activelyDiving || !activelyPostDiving)
-        {
+        {            
+
+            lastPosition = transform.position;
             horizontalInput = Input.GetAxis("Horizontal");
             verticalInput = Input.GetAxis("Vertical");
+
+            Vector2 direction2d = new Vector2(horizontalInput, verticalInput);
+            float angleInDegrees = playerObject.transform.eulerAngles.y;
+            float angleInRadians = angleInDegrees * Mathf.Deg2Rad;
+
+            // Quaternion rotation = Quaternion.Euler(0, 0, angleRadians);
+
+            float cosTheta = Mathf.Cos(angleInRadians);
+            float sinTheta = Mathf.Sin(angleInRadians);
+
+            float newX = cosTheta * direction2d.x - sinTheta * direction2d.y;
+            float newY = sinTheta * direction2d.x + cosTheta * direction2d.y;
+
+
+            // Apply the rotation
+            Vector2 rotatedPoint2D = new Vector2(newX, newY);
+            Debug.Log("direction2d " + direction2d + " - rotatedPoint2D " + rotatedPoint2D + " - angle " + angleInDegrees);
+
+            animator.SetFloat("MoveX", rotatedPoint2D.x);
+            animator.SetFloat("MoveY", rotatedPoint2D.y);
             // animator.SetBool("Moving", false);
             // animator.SetFloat("Speed", Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
         }
