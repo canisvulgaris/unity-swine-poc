@@ -74,23 +74,18 @@ public class PlayerMovement : MonoBehaviour
             float angleInDegrees = playerObject.transform.eulerAngles.y;
             float angleInRadians = angleInDegrees * Mathf.Deg2Rad;
 
-            // Quaternion rotation = Quaternion.Euler(0, 0, angleRadians);
-
             float cosTheta = Mathf.Cos(angleInRadians);
             float sinTheta = Mathf.Sin(angleInRadians);
 
             float newX = cosTheta * direction2d.x - sinTheta * direction2d.y;
             float newY = sinTheta * direction2d.x + cosTheta * direction2d.y;
 
-
             // Apply the rotation
             Vector2 rotatedPoint2D = new Vector2(newX, newY);
-            Debug.Log("direction2d " + direction2d + " - rotatedPoint2D " + rotatedPoint2D + " - angle " + angleInDegrees);
+            // Debug.Log("direction2d " + direction2d + " - rotatedPoint2D " + rotatedPoint2D + " - angle " + angleInDegrees);
 
             animator.SetFloat("MoveX", rotatedPoint2D.x);
             animator.SetFloat("MoveY", rotatedPoint2D.y);
-            // animator.SetBool("Moving", false);
-            // animator.SetFloat("Speed", Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
         }
 
         float currentSpeed = Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput);

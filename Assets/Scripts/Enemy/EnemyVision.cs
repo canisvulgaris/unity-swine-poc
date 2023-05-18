@@ -18,8 +18,7 @@ public class EnemyVision : MonoBehaviour
     public float viewAngleDefault = 45f;
     public float viewDistanceAlert = 70f;
     public float viewAngleAlert = 270f;
-    public LayerMask obstacleMask;
-    public LayerMask targetMask;
+    public LayerMask ignoreMask;
 
     public float rotationSpeed = 2.0f;
     public float fireRate = 0.5f;
@@ -29,6 +28,7 @@ public class EnemyVision : MonoBehaviour
 
     private float timeSinceSeenPlayer = 0;
     private bool playerDetected = false;
+    private bool playerSearch = false;
     private bool enemyAlert = false;
     private bool enemyIsFiring = false;
 
@@ -38,6 +38,7 @@ public class EnemyVision : MonoBehaviour
     private float viewAngle;
     private UnityEngine.AI.NavMeshAgent agent;
     private Transform lastKnownPlayerPosition;
+    private GameObject player;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +48,7 @@ public class EnemyVision : MonoBehaviour
         viewAngle = viewAngleDefault;
         enemyAlive = true;
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -67,7 +69,6 @@ public class EnemyVision : MonoBehaviour
         
         if (enemyAlive)
         {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
             if (player != null)
             {
                 if (enemyAlert == true)
@@ -83,9 +84,11 @@ public class EnemyVision : MonoBehaviour
                     enemyView.GetComponent<Renderer>().material = viewNetralMaterial;
                 }
 
-                // if enemy can see player
+                // if enemy can see player                
                 if (CanSeeTarget(player.transform))
                 {
+                    Debug.Log("Enemy sees player!");
+                    Debug.DrawLine(transform.position, player.transform.position, Color.yellow, 5.0f);
                     lastKnownPlayerPosition = player.transform;
                     AlertState();
                     if (enemyIsFiring == false)
@@ -126,11 +129,9 @@ public class EnemyVision : MonoBehaviour
     public void HeardSomething(Transform target)
     {
         // Debug.Log("Heard something!");        
-        if (playerDetected == false && enemyAlive == true)
+        if (!CanSeeTarget(player.transform) && playerSearch == false && playerDetected == false && enemyAlive == true)
         {
-            enemyAlert = true;
-            viewDistance = viewDistanceAlert;
-            viewAngle = viewAngleAlert;
+            AlertState();
             agent.SetDestination(target.position);
         }
     }
@@ -148,6 +149,7 @@ public class EnemyVision : MonoBehaviour
     {
         if (enemyAlive) {
             enemyAlert = false;
+            playerSearch = false;
             enemyView.GetComponent<Renderer>().material = viewNetralMaterial;
             viewDistance = viewDistanceDefault;
             viewAngle = viewAngleDefault;
@@ -160,6 +162,7 @@ public class EnemyVision : MonoBehaviour
         {
             // Debug.Log("Player detected!");
             playerDetected = true;
+            playerSearch = false;
 
             enemyView.GetComponent<Renderer>().material = viewFireMaterial;
         }
@@ -170,6 +173,7 @@ public class EnemyVision : MonoBehaviour
         {
             // Debug.Log("Player lost!");
             playerDetected = false;
+            playerSearch = true;
             enemyView.GetComponent<Renderer>().material = viewAlertMaterial;
             agent.SetDestination(lastKnownPlayerPosition.position);
         }
@@ -177,21 +181,27 @@ public class EnemyVision : MonoBehaviour
 
     private bool CanSeeTarget(Transform target)
     {
-        Vector3 directionToTarget = (target.position - transform.position).normalized;
+        Vector3 directionToTarget = target.position - transform.position;
         float angleBetweenEnemyAndTarget = Vector3.Angle(transform.forward, directionToTarget);
 
         if (angleBetweenEnemyAndTarget <= viewAngle / 2)
         {
+            // Debug.Log("CanSeeTarget - found in angle - angleBetweenEnemyAndTarget " + angleBetweenEnemyAndTarget + " - viewAngle " + viewAngle/2);
             float distanceToTarget = Vector3.Distance(transform.position, target.position);
+            // Debug.DrawLine(transform.position, directionToTarget, Color.green, 1.0f);
 
             if (distanceToTarget <= viewDistance)
             {
+                // Debug.Log("CanSeeTarget - found in dist - distanceToTarget " + distanceToTarget + " - viewDistance " + viewDistance);
                 RaycastHit hit;
-                if (Physics.Raycast(transform.position, directionToTarget, out hit, viewDistance, obstacleMask | targetMask))
-                {
-                    if (hit.transform == target)
+                // Debug.DrawLine(transform.position, directionToTarget * viewDistance, Color.yellow, 1.0f);
+                
+                if (Physics.Raycast(transform.position, directionToTarget, out hit, viewDistance, ~ignoreMask))
+                {                    
+                    Debug.Log("raycast " + hit.transform.name);
+                    if (hit.transform.name == "PlayerHolder")
                     {
-                        // Debug.DrawLine (transform.position, target.position, Color.blue, 5.0f);
+                        // Debug.DrawLine(transform.position, directionToTarget * viewDistance, Color.red, 1.0f);
                         return true;
                     }
                 }
