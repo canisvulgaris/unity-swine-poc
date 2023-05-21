@@ -1872,17 +1872,9 @@ PrefabInstance:
       propertyPath: console
       value: 
       objectReference: {fileID: 1828408596}
-    - target: {fileID: 4463793434866503382, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
     - target: {fileID: 4868722689256754282, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
       propertyPath: m_Name
       value: PlayerHolder
-      objectReference: {fileID: 0}
-    - target: {fileID: 4868722689256754282, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-      propertyPath: m_TagString
-      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4868722689257181194, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
       propertyPath: m_RootOrder
@@ -1933,71 +1925,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 997775007}
     - target: {fileID: 7263147374457099626, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-      propertyPath: m_Enabled
+      propertyPath: Processor._EditorCategory
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7263147374457099626, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-      propertyPath: Processor.FreeFallRagdoll
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7263147374457099626, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-      propertyPath: Processor._EditorCategory
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 509271406547754502, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 8609991715680084225, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 3385004547649073796, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 2389795962999006907, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 8091031135652993042, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 7847463896576093135, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 2706976741131199000, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 2680453102425380757, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 2838215372067090883, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 6808392474355634880, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 2639776356742576998, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 3231589390340177894, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 9143704542857503146, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 2590486216576669647, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 54514460468895084, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 5984964917935121058, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 4269541161059542189, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 4676685838568598970, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 7726572668379143483, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 8312994285136771904, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 2555351814045335441, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 7623562101347977355, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 1952954357254341142, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 972761421288709325, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 7732847349202581899, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 5831462213810548117, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 3301364909913321460, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 7021094369471410619, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 7281677420784133904, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 8658328947651143748, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 4606667835604767449, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 7845633891946882069, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 4281669248260649104, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 3865726492358740834, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 9180244805468612578, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 4383311357797287984, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 7677946309901806955, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 9174901433517216810, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 5571008434614700399, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 7884396454703682566, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 6168766468747442179, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 8276688284220200152, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 1856298784876909611, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 8891194457911718910, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 7740855100716621865, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 39209257579066029, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 3952125389313691576, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 7046406268391320937, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 3298307048407362901, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 3187834402513985700, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 117461036643890134, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 4603711849808752109, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-    - {fileID: 3483951437883790910, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
