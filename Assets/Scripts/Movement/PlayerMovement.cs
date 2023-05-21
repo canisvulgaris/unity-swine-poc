@@ -9,7 +9,6 @@ public class PlayerMovement : MonoBehaviour
     public float damageScale = 1f;
     public Material playerDeadMaterial;
 
-    public GameObject playerObject;
     public GameObject playerModel;
     public float moveSpeed = 13.0f;
     public float jumpForce = 5.0f;
@@ -71,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
             verticalInput = Input.GetAxis("Vertical");
 
             Vector2 direction2d = new Vector2(horizontalInput, verticalInput);
-            float angleInDegrees = playerObject.transform.eulerAngles.y;
+            float angleInDegrees = transform.eulerAngles.y;
             float angleInRadians = angleInDegrees * Mathf.Deg2Rad;
 
             float cosTheta = Mathf.Cos(angleInRadians);
