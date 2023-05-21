@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
     {
         lastPosition = transform.position;
         rb = GetComponent<Rigidbody>();
-        animator = playerModel.GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
     void Update()
     {

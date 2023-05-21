@@ -2546,7 +2546,7 @@ GameObject:
   - component: {fileID: 4463793434866503382}
   - component: {fileID: 4409717969650756000}
   - component: {fileID: 407596425143879720}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2560,7 +2560,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4868722689256754282}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2571,7 +2571,7 @@ Transform:
   - {fileID: 4868722689257181686}
   - {fileID: 4868722689257181674}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &4868722689266286552
 Animator:
@@ -2788,7 +2788,6 @@ MonoBehaviour:
   playerStartingHealth: 100
   damageScale: 1
   playerDeadMaterial: {fileID: 2100000, guid: e188b1539fdb54fd5b526606160fe54d, type: 2}
-  playerObject: {fileID: 0}
   playerModel: {fileID: 4868722689256754634}
   moveSpeed: 13
   jumpForce: 2
@@ -4118,7 +4117,7 @@ GameObject:
   - component: {fileID: 4868722689270350108}
   - component: {fileID: 1701398631388847598}
   m_Layer: 0
-  m_Name: RPG-Character-Mesh
+  m_Name: CharacterMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
