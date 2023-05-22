@@ -1938,7 +1938,7 @@ PrefabInstance:
       objectReference: {fileID: 997775007}
     - target: {fileID: 7263147374457099626, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
       propertyPath: Processor.RagdolledBlend
-      value: 0.05
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7263147374457099626, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
       propertyPath: Processor.ConfigurableDamp
@@ -1950,6 +1950,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7263147374457099626, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
       propertyPath: Processor.ConstantHeadRagdoll
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263147374457099626, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
+      propertyPath: Processor.ConstantSpineRagdoll
       value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
