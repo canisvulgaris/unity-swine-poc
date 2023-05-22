@@ -45,7 +45,7 @@ public class ShootBallPlayer : MonoBehaviour
 
     void Shoot()
     {
-        float RandomX = Random.Range(-1 * currentRotation, currentRotation) - burstCount;
+        float RandomX = Random.Range(-1 * currentRotation, currentRotation) - burstCount * 2;
         float RandomY = Random.Range(-1 * currentRotation, currentRotation);
 
         Quaternion randomRotation = Quaternion.Euler(RandomX, RandomY, 0f);
