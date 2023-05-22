@@ -9,6 +9,8 @@ using UnityEngine;
 
     public float ambientEffect = 10.0f;
 
+    public LayerMask excludeLayers;
+
     private int numDebris = 5;
     private float debrisSpeed = 1f;
     private float minDebrisAngle = -10f;
@@ -42,13 +44,14 @@ using UnityEngine;
         last_position = current_position;
         current_position = transform.position;
 
-        int mask = 1 << 6;
-        mask = ~mask;
+        // int mask = 1 << 6;
+        // mask = ~mask;
 
-        if (Physics.Linecast(last_position, current_position, out hit, mask))
+        if (Physics.Linecast(last_position, current_position, out hit, ~excludeLayers))
         {
-            //hit.transform.SendMessage("AddDamage", bullet_damage, SendMessageOptions.DontRequireReceiver); //Send Damage message to hit object
+            //hit.transform.SendMessage("AddDamage", bullet_damage, SendMessageOptions.DontRequireReceiver); //Send Damage message to hit object            
             Debug.DrawLine (original_position, current_position, Color.red, 0.2f);
+            // Debug.Log("destroy object " + hit.transform.name);
             Destroy(gameObject);
         }            
      }
@@ -66,7 +69,12 @@ using UnityEngine;
                 c.gameObject.SendMessage("HeardSomething", transform, SendMessageOptions.DontRequireReceiver);
             }
         }
-        SpawnDebris(coll);
+        if (((1 << coll.gameObject.layer) & ~excludeLayers) != 0)
+        {
+            // Debug.Log("Spawn Debris " + coll.gameObject.name);
+            SpawnDebris(coll);
+            Destroy(gameObject);
+        }        
      }
 
      void SpawnDebris(Collision coll) {

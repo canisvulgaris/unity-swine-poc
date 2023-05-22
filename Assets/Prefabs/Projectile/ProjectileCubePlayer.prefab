@@ -35,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7388235777098349218
 MeshFilter:
@@ -100,7 +100,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -130,7 +130,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -152,6 +152,9 @@ MonoBehaviour:
   bullet_damage: 10
   bulletDebris: {fileID: 826901302643656917, guid: facffe8b910d44ee68360641c87a558d, type: 3}
   ambientEffect: 8
+  excludeLayers:
+    serializedVersion: 2
+    m_Bits: 3136
 --- !u!114 &1553605682152628884
 MonoBehaviour:
   m_ObjectHideFlags: 0

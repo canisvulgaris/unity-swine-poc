@@ -100,7 +100,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -152,6 +152,9 @@ MonoBehaviour:
   bullet_damage: 10
   bulletDebris: {fileID: 826901302643656917, guid: facffe8b910d44ee68360641c87a558d, type: 3}
   ambientEffect: 8
+  excludeLayers:
+    serializedVersion: 2
+    m_Bits: 1088
 --- !u!114 &-8302253778464712969
 MonoBehaviour:
   m_ObjectHideFlags: 0
