@@ -1873,12 +1873,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1828408596}
     - target: {fileID: 4409717969650756000, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-      propertyPath: RestoreCulldown
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4409717969650756000, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
       propertyPath: PlayerInvincible
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4868722689256754282, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
       propertyPath: m_Name
@@ -1933,25 +1929,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 997775007}
     - target: {fileID: 7263147374457099626, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-      propertyPath: Processor.HipsPin
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7263147374457099626, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-      propertyPath: Processor.AddNamePrefix
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7263147374457099626, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
       propertyPath: Processor._EditorCategory
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7263147374457099626, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
       propertyPath: TargetParentForRagdollDummy
       value: 
       objectReference: {fileID: 1057893980}
-    - target: {fileID: 7263147374457099626, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-      propertyPath: Processor.SendCollisionEventsTo
-      value: 
-      objectReference: {fileID: 1748534196}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3829,11 +3813,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1748534196 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4868722689256754282, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-  m_PrefabInstance: {fileID: 753567712}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1780407234
 PrefabInstance:
   m_ObjectHideFlags: 0

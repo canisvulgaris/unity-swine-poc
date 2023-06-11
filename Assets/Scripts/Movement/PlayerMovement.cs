@@ -278,7 +278,7 @@ namespace FIMSpace.RagdollAnimatorDemo
 
         public void RagdAnim_OnCollisionEnterEvent(RagdollProcessor.RagdollCollisionHelper c)
         {
-            if (c.LatestEnterCollision.collider.CompareTag(TriggerBlendOnTagged))
+            if (c.LatestEnterCollision.collider.CompareTag(TriggerBlendOnTagged) && c.LatestEnterCollision.relativeVelocity.magnitude > 20f)
             {
                 Debug.Log("Hit Limb " + c.LimbID + " with power " + c.LatestEnterCollision.relativeVelocity.magnitude);
                 ragdoll = c.ParentRagdollAnimator;
