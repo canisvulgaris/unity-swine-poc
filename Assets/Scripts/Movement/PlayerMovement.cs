@@ -186,8 +186,7 @@ namespace FIMSpace.RagdollAnimatorDemo
             else
             {
                 rb.velocity = Vector3.zero;
-                transform.position = PlayerRagdollObject.transform.position;
-                Debug.Log("sync player " + transform.position + " and ragdoll " + PlayerRagdollObject.transform.position);
+                transform.position = new Vector3(PlayerRagdollObject.transform.position.x, transform.position.y, PlayerRagdollObject.transform.position.z);
             }
         }
         void MovePlayer()
