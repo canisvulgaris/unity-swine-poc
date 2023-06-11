@@ -99,9 +99,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 107266366453703777, guid: 3f65e1411bce04c5ca1ea11a8d51ff50, type: 3}
-  ballOffset: 1
-  minRotation: -2
-  maxRotation: 2
 --- !u!1 &2061881601010693197
 GameObject:
   m_ObjectHideFlags: 0
@@ -2108,7 +2105,7 @@ Transform:
   - {fileID: 4868722689257181686}
   - {fileID: 4868722689257181674}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &4868722689266286552
 Animator:
@@ -2178,9 +2175,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.4
-  m_Height: 1
+  m_Height: 2.65
   m_Direction: 1
-  m_Center: {x: 0, y: 0.45, z: 0}
+  m_Center: {x: 0, y: 1.3, z: 0}
 --- !u!114 &5125349384068845459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2226,6 +2223,24 @@ MonoBehaviour:
   diveLeapHeight: 0.4
   diveTime: 0.2
   divePostTime: 0.4
+  PlayerRagdollObject: {fileID: 0}
+  RagdollEnabled: 1
+  ragdoll: {fileID: 7263147374457099626}
+  AutoGetUp: 1
+  PowerMul: 5
+  ImpactDuration: 0.4
+  FadeMusclesTo: 0.01
+  FadeMusclesDuration: 0.75
+  snapToGroundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  TriggerBlendOnTagged: Projectile
+  RestoreCulldown: 1
+  PlayerInvincible: 0
+  TestPlayAnimOnRagdoll: Fall
+  CanGetUp: 0
+  LimbsVelocity: {x: 0, y: 0, z: 0}
+  LimbsVelocityMagn: 0
 --- !u!114 &7263147374457099626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2248,27 +2263,27 @@ MonoBehaviour:
       generateFists: 0
       generateFoots: 0
       generateShoulders: 0
-    SendCollisionEventsTo: {fileID: 0}
-    SendOnlyOnFreeFall: 1
+    SendCollisionEventsTo: {fileID: 4868722689256754282}
+    SendOnlyOnFreeFall: 0
     AlwaysAddCollisionHelpers: 0
     KeepCollidersOnAnimator: 0
-    ChangeAnimatorCollidersLayerTo: 0
+    ChangeAnimatorCollidersLayerTo: 11
     RemoveOnlyTargetRagdollCollidersOnAnimator: 0
     IgnoreAnimatorToRagdollCollision: 1
     CheckFullBoneNamesWhenSearching: 0
     AllowDisableCalculationsOnZeroBlend: 0
     FreeFallRagdoll: 0
-    RagdolledBlend: 0
+    RagdolledBlend: 0.1
     RotateToPoseForce: 0.75
     UnitySolverIterations: 14
     BlendOnCollision: 1
     ConstantArmsRagdoll: 0.1
-    ConstantHeadRagdoll: 0.27
-    ConstantSpineRagdoll: 0.11
+    ConstantHeadRagdoll: 0.1
+    ConstantSpineRagdoll: 0.1
     BlendingSpeed: 0.5
     SensitiveCollision: 0
-    ConfigurableSpring: 2000
-    ConfigurableDamp: 40
+    ConfigurableSpring: 1500
+    ConfigurableDamp: 50
     HipsPinSpring: 4000
     HipsPositionOffset: {x: 0, y: 0, z: 0}
     HipsBoostMul: {x: 1, y: 1, z: 1}
@@ -2290,7 +2305,7 @@ MonoBehaviour:
     HideDummy: 0
     IgnoreCollisionWith: []
     HipsPin: 0
-    TryAnimatePelvis: 1
+    TryAnimatePelvis: 2
     StartAfterTPose: 0
     ResetIsKinematic: 0
     Persistent: 0
@@ -2313,7 +2328,7 @@ MonoBehaviour:
       Generator_Offset: {x: 0, y: 0, z: 0}
       Generator_OverrideCapsuleDir: -1
       Generator_Extra: 0
-    _EditorCategory: 1
+    _EditorCategory: 0
     _EditorDrawBones: 1
     _EditorDrawHumanoidExtra: 0
     _EditorDrawGenerator: 1

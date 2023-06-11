@@ -198,7 +198,7 @@ public class EnemyVision : MonoBehaviour
                 
                 if (Physics.Raycast(transform.position, directionToTarget, out hit, viewDistance, ~ignoreMask))
                 {                    
-                    Debug.Log("raycast " + hit.transform.name);
+                    // Debug.Log("raycast " + hit.transform.name);
                     if (hit.transform.name == "PlayerHolder")
                     {
                         // Debug.DrawLine(transform.position, directionToTarget * viewDistance, Color.red, 1.0f);

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace FIMSpace.RagdollAnimatorDemo
 {
-    public class PlayerMovement : MonoBehaviour
+    public class PlayerMovement : MonoBehaviour, RagdollProcessor.IRagdollAnimatorReceiver
     {
         public GameObject console;
         public float playerStartingHealth = 100f;
@@ -29,14 +29,14 @@ namespace FIMSpace.RagdollAnimatorDemo
         public float divePostTime = 0.4f;
 
         
-        private enum PlayerState
+        public enum PlayerState
         {
             Alive,
             Ragdoll,
             Dead
         }
 
-        private PlayerState currentPlayerState = PlayerState.Alive;
+        public PlayerState currentPlayerState = PlayerState.Alive;
 
         private bool activelyDiving = false;
         private bool activelyPostDiving = false;
@@ -47,7 +47,7 @@ namespace FIMSpace.RagdollAnimatorDemo
         private Animator animator;
 
         // rag doll
-
+        [FPD_Header("Ragdoll")]
         public GameObject PlayerRagdollObject;
         public bool RagdollEnabled = true;
         public RagdollAnimator ragdoll;
@@ -58,7 +58,13 @@ namespace FIMSpace.RagdollAnimatorDemo
         [Range(0f, 1.25f)] public float FadeMusclesDuration = 0.75f;
         public LayerMask snapToGroundLayer = 1 << 0;
 
+        public string TriggerBlendOnTagged = "Projectile";
+        public float RestoreCulldown = 0.4f;
+        float blendInTimer = 0f;
+
         [FPD_Header("Debugging")]
+
+        public bool PlayerInvincible = false;
         public string TestPlayAnimOnRagdoll = "";
         public RagdollProcessor.EGetUpType CanGetUp = RagdollProcessor.EGetUpType.None;
         public Vector3 LimbsVelocity;
@@ -73,7 +79,7 @@ namespace FIMSpace.RagdollAnimatorDemo
             lastPosition = transform.position;
             rb = GetComponent<Rigidbody>();
             animator = GetComponent<Animator>();
-            PlayerRagdollObject = GameObject.Find("PlayerHolder-Ragdoll");
+            PlayerRagdollObject = GameObject.Find("B_Pelvis"); // centering object around ragdoll pelvis
         }
         void Update()
         {
@@ -113,7 +119,7 @@ namespace FIMSpace.RagdollAnimatorDemo
 
             if (Input.GetKeyDown(KeyCode.P))
             {
-                PlayerRagDoll();
+                PlayerRagDoll(100);
             }
 
             CanGetUp = ragdoll.Parameters.User_CanGetUp(null, false);
@@ -125,32 +131,50 @@ namespace FIMSpace.RagdollAnimatorDemo
             if (ragdoll.Parameters.FreeFallRagdoll == false && currentPlayerState == PlayerState.Ragdoll && AutoGetUp) {
                 currentPlayerState = PlayerState.Alive;
             }
+
+            if (currentPlayerState == PlayerState.Alive) {
+                blendInTimer -= Time.deltaTime;
+
+                if (blendInTimer > 0f)
+                {
+                    float blend = ragdoll.Parameters.RagdolledBlend;
+                    ragdoll.Parameters.RagdolledBlend = Mathf.MoveTowards(blend, 1f, Time.deltaTime * 15f);
+                }
+                else
+                {
+                    float blend = ragdoll.Parameters.RagdolledBlend;
+                    ragdoll.Parameters.RagdolledBlend = Mathf.MoveTowards(blend, 0f, Time.deltaTime * 5f);
+                }
+            }
+
+            
         }
 
-        void PlayerRagDoll()
+        void PlayerRagDoll(float power, GameObject hitObject = null)
         {
             if (currentPlayerState == PlayerState.Alive) {
                 currentPlayerState = PlayerState.Ragdoll;
             }
             
-            // if (hit.rigidbody)
-            // {
-            //     if (ragdoll.Parameters.RagdollLimbs.Contains(hit.rigidbody))
-            //     {
-                    ragdoll.StopAllCoroutines();
-                    ragdoll.Parameters.SafetyResetAfterCouroutinesStop();
-                    ragdoll.User_SetAllKinematic(false);
-                    ragdoll.User_EnableFreeRagdoll();
-                    ragdoll.User_SwitchAnimator(null, false, 0.15f);
+            ragdoll.StopAllCoroutines();
+            ragdoll.Parameters.SafetyResetAfterCouroutinesStop();
+            ragdoll.User_SetAllKinematic(false);
+            ragdoll.User_EnableFreeRagdoll();
+            ragdoll.User_SwitchAnimator(null, false, 0.15f);
 
-                    // ragdoll.User_SetLimbImpact(hit.rigidbody, ray.direction.normalized * PowerMul, ImpactDuration);
+            // ragdoll.User_SetLimbImpact(hit.rigidbody, ray.direction.normalized * PowerMul, ImpactDuration);
+            if (hitObject) {
+                Vector3 objectRotation = -hitObject.transform.forward;
+                ragdoll.User_SetLimbImpact(hitObject.GetComponent<Rigidbody>(), objectRotation * power, ImpactDuration);
+            }            
 
-                    if (FadeMusclesTo < 1f)
-                        ragdoll.User_FadeMuscles(FadeMusclesTo, FadeMusclesDuration);
+            if (FadeMusclesTo < 1f) {
+                ragdoll.User_FadeMuscles(FadeMusclesTo, FadeMusclesDuration);
+            }
 
-                    if (TestPlayAnimOnRagdoll != "") ragdoll.ObjectWithAnimator.GetComponent<Animator>().CrossFadeInFixedTime(TestPlayAnimOnRagdoll, 0.15f);
-            //     }
-            // }
+            if (TestPlayAnimOnRagdoll != "") {
+                ragdoll.ObjectWithAnimator.GetComponent<Animator>().CrossFadeInFixedTime(TestPlayAnimOnRagdoll, 0.15f);
+            }            
         }
 
         void FixedUpdate()
@@ -163,6 +187,7 @@ namespace FIMSpace.RagdollAnimatorDemo
             {
                 rb.velocity = Vector3.zero;
                 transform.position = PlayerRagdollObject.transform.position;
+                Debug.Log("sync player " + transform.position + " and ragdoll " + PlayerRagdollObject.transform.position);
             }
         }
         void MovePlayer()
@@ -238,20 +263,39 @@ namespace FIMSpace.RagdollAnimatorDemo
         void OnCollisionEnter(Collision coll)
         {
             if (coll.gameObject.tag == "Projectile")
-            {
-                Debug.Log("player damaged " + coll.relativeVelocity.magnitude);
-                playerStartingHealth -= coll.relativeVelocity.magnitude * damageScale;
+            {                
+
+                if (PlayerInvincible == false) {
+                    playerStartingHealth -= coll.relativeVelocity.magnitude * damageScale;
+                    Debug.Log("player damaged " + coll.relativeVelocity.magnitude);
+                }
+                
                 if (playerStartingHealth <= 0)
                 {
                     PlayerDead();                    
                 }
             }
+        }        
+
+        public void RagdAnim_OnCollisionEnterEvent(RagdollProcessor.RagdollCollisionHelper c)
+        {
+            if (c.LatestEnterCollision.collider.CompareTag(TriggerBlendOnTagged))
+            {
+                Debug.Log("Hit Limb " + c.LimbID + " with power " + c.LatestEnterCollision.relativeVelocity.magnitude);
+                ragdoll = c.ParentRagdollAnimator;
+                blendInTimer = RestoreCulldown;
+                PlayerRagDoll(c.LatestEnterCollision.relativeVelocity.magnitude, c.gameObject);
+            }
+        }
+
+        public void RagdAnim_OnCollisionExitEvent(RagdollProcessor.RagdollCollisionHelper c)
+        {
         }
 
         public void PlayerDead()
         {
             currentPlayerState = PlayerState.Dead;
-            PlayerRagDoll();
+            PlayerRagDoll(10);
             AutoGetUp = false;            
             // playerModel.GetComponent<Renderer>().material = playerDeadMaterial;
             console.SendMessage("ShowFail"); //Send Damage message to hit object
