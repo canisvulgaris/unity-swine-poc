@@ -28,6 +28,16 @@ namespace FIMSpace.RagdollAnimatorDemo
         public float diveTime = 0.2f;
         public float divePostTime = 0.4f;
 
+        
+        private enum PlayerState
+        {
+            Alive,
+            Ragdoll,
+            Dead
+        }
+
+        private PlayerState currentPlayerState = PlayerState.Alive;
+
         private bool activelyDiving = false;
         private bool activelyPostDiving = false;
 
@@ -37,6 +47,8 @@ namespace FIMSpace.RagdollAnimatorDemo
         private Animator animator;
 
         // rag doll
+
+        public GameObject PlayerRagdollObject;
         public bool RagdollEnabled = true;
         public RagdollAnimator ragdoll;
         public bool AutoGetUp = true;
@@ -61,6 +73,7 @@ namespace FIMSpace.RagdollAnimatorDemo
             lastPosition = transform.position;
             rb = GetComponent<Rigidbody>();
             animator = GetComponent<Animator>();
+            PlayerRagdollObject = GameObject.Find("PlayerHolder-Ragdoll");
         }
         void Update()
         {
@@ -108,10 +121,18 @@ namespace FIMSpace.RagdollAnimatorDemo
             LimbsAngularVelocity = ragdoll.Parameters.User_GetSpineLimbsAngularVelocity();
             LimbsVelocityMagn = LimbsVelocity.magnitude;
             LimbsAngularVelocityMagn = LimbsAngularVelocity.magnitude;
+
+            if (ragdoll.Parameters.FreeFallRagdoll == false && currentPlayerState == PlayerState.Ragdoll && AutoGetUp) {
+                currentPlayerState = PlayerState.Alive;
+            }
         }
 
         void PlayerRagDoll()
         {
+            if (currentPlayerState == PlayerState.Alive) {
+                currentPlayerState = PlayerState.Ragdoll;
+            }
+            
             // if (hit.rigidbody)
             // {
             //     if (ragdoll.Parameters.RagdollLimbs.Contains(hit.rigidbody))
@@ -133,6 +154,18 @@ namespace FIMSpace.RagdollAnimatorDemo
         }
 
         void FixedUpdate()
+        {
+            if (currentPlayerState == PlayerState.Alive)
+            {
+                MovePlayer();
+            }
+            else
+            {
+                rb.velocity = Vector3.zero;
+                transform.position = PlayerRagdollObject.transform.position;
+            }
+        }
+        void MovePlayer()
         {
             float moveSpeedModifier = moveSpeed;
             float moveHeightModifier = 0.0f;
@@ -210,13 +243,16 @@ namespace FIMSpace.RagdollAnimatorDemo
                 playerStartingHealth -= coll.relativeVelocity.magnitude * damageScale;
                 if (playerStartingHealth <= 0)
                 {
-                    PlayerDead();
+                    PlayerDead();                    
                 }
             }
         }
 
         public void PlayerDead()
         {
+            currentPlayerState = PlayerState.Dead;
+            PlayerRagDoll();
+            AutoGetUp = false;            
             // playerModel.GetComponent<Renderer>().material = playerDeadMaterial;
             console.SendMessage("ShowFail"); //Send Damage message to hit object
         }
