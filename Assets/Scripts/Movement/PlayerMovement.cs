@@ -7,7 +7,10 @@ namespace FIMSpace.RagdollAnimatorDemo
 {
     public class PlayerMovement : MonoBehaviour, RagdollProcessor.IRagdollAnimatorReceiver
     {
+        //UI
         public GameObject console;
+
+        //Player Stuff
         public float playerStartingHealth = 100f;
         public float damageScale = 1f;
         public Material playerDeadMaterial;
