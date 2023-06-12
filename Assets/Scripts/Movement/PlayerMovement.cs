@@ -16,6 +16,7 @@ namespace FIMSpace.RagdollAnimatorDemo
         public Material playerDeadMaterial;
 
         public GameObject playerModel;
+        private GameObject playerRagdollParent;
         public float moveSpeed = 13.0f;
         public float jumpForce = 5.0f;
 
@@ -23,14 +24,6 @@ namespace FIMSpace.RagdollAnimatorDemo
         public LayerMask groundLayer;
 
         private Rigidbody rb;
-        public bool isGrounded;
-
-        public float diveLeapForce = 20.0f;
-        public float diveLeapHeight = 0.1f;
-
-        public float diveTime = 0.2f;
-        public float divePostTime = 0.4f;
-
         
         public enum PlayerState
         {
@@ -52,6 +45,7 @@ namespace FIMSpace.RagdollAnimatorDemo
         // rag doll
         [FPD_Header("Ragdoll")]
         public GameObject PlayerRagdollObject;
+        public GameObject PlayerDiveObject;
         public bool RagdollEnabled = true;
         public RagdollAnimator ragdoll;
         public bool AutoGetUp = true;
@@ -83,22 +77,38 @@ namespace FIMSpace.RagdollAnimatorDemo
             rb = GetComponent<Rigidbody>();
             animator = GetComponent<Animator>();
             PlayerRagdollObject = GameObject.Find("B_Pelvis"); // centering object around ragdoll pelvis
+            playerRagdollParent = GameObject.Find("PlayerHolder-Ragdoll-SkeletonOrigin");
+            PlayerDiveObject = playerRagdollParent.transform.Find("B_Pelvis").gameObject;
+            // StartCoroutine(FindDiveObject());
         }
+
+        // IEnumerator FindDiveObject()
+        // {
+        //     yield return new WaitForSeconds(5);
+
+        //     // PlayerDiveObject = playerRagdollParent.transform.Find("PlayerHolder-Ragdoll-SkeletonOrigin").gameObject;
+        //     string childName = "B_Head";
+        //     Transform parentTransform = playerRagdollParent.transform;
+
+        //     for (int i = 0; i < parentTransform.childCount; i++)
+        //     {
+        //         Transform childTransform = parentTransform.GetChild(i);
+        //         if (childTransform.name == childName)
+        //         {
+        //             Debug.Log("Found a child with the name: " + childTransform.name);
+        //             break;
+        //         }
+        //     }
+        // }
+
         void Update()
         {
-            isGrounded = Physics.CheckSphere(transform.position, groundedModifier, groundLayer, QueryTriggerInteraction.Ignore);
+            // isGrounded = Physics.CheckSphere(transform.position, groundedModifier, groundLayer, QueryTriggerInteraction.Ignore);
 
             // Input.GetButtonDown("Jump")
-            if (
-                isGrounded &&
-                (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.LeftShift))
-                )
+            if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.LeftShift)) && currentPlayerState == PlayerState.Alive)
             {
-                //add dive modifier
-                if (activelyDiving == false || activelyPostDiving == false)
-                {
-                    StartCoroutine(DiveCoroutine());
-                }
+                PlayerRagDoll(40, PlayerDiveObject, true);
             }
 
             //rag doll related
@@ -153,7 +163,7 @@ namespace FIMSpace.RagdollAnimatorDemo
             
         }
 
-        void PlayerRagDoll(float power, GameObject hitObject = null)
+        void PlayerRagDoll(float power, GameObject hitObject = null, bool reverse = false)
         {
             if (currentPlayerState == PlayerState.Alive) {
                 currentPlayerState = PlayerState.Ragdoll;
@@ -168,6 +178,9 @@ namespace FIMSpace.RagdollAnimatorDemo
             // ragdoll.User_SetLimbImpact(hit.rigidbody, ray.direction.normalized * PowerMul, ImpactDuration);
             if (hitObject) {
                 Vector3 objectRotation = -hitObject.transform.forward;
+                if (reverse) {
+                    objectRotation = hitObject.transform.up;
+                }
                 ragdoll.User_SetLimbImpact(hitObject.GetComponent<Rigidbody>(), objectRotation * power, ImpactDuration);
             }            
 
@@ -236,30 +249,7 @@ namespace FIMSpace.RagdollAnimatorDemo
                 animator.SetFloat("Speed", 0);
             }
 
-            if (activelyDiving == true)
-            {
-                moveSpeedModifier = diveLeapForce;
-                moveHeightModifier = diveLeapHeight;
-            }
-
-            if (activelyPostDiving == true)
-            {
-                moveSpeedModifier = diveLeapForce * 0.1f;
-            }
-
             rb.velocity = new Vector3(horizontalInput * moveSpeedModifier, rb.velocity.y + moveHeightModifier, verticalInput * moveSpeedModifier);
-        }
-
-        IEnumerator DiveCoroutine()
-        {
-            activelyDiving = true;
-            //yield on a new YieldInstruction that waits for 5 seconds.
-            yield return new WaitForSeconds(diveTime);
-            activelyDiving = false;
-
-            activelyPostDiving = true;
-            yield return new WaitForSeconds(divePostTime);
-            activelyPostDiving = false;
         }
 
         void OnCollisionEnter(Collision coll)
