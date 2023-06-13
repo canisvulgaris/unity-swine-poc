@@ -45,6 +45,7 @@ namespace FIMSpace.RagdollAnimatorDemo
         // rag doll
         [FPD_Header("Ragdoll")]
         public GameObject playerRagdollObject;
+        public GameObject playerRagdollSpineObject;
 
         public bool ragdollEnabled = true;
         public RagdollAnimator ragdoll;
@@ -78,24 +79,24 @@ namespace FIMSpace.RagdollAnimatorDemo
             animator = GetComponent<Animator>();
 
             // need to find the head of the ragdoll to sync player movement and diving motion
-            RecursiveFindChild(playerRagdollParent.transform, "B_Head");
-
+            RecursiveFindChild(playerRagdollParent.transform, "B_Head", ref playerRagdollObject);
+            RecursiveFindChild(playerRagdollParent.transform, "B_Spine1", ref playerRagdollSpineObject);
         }
 
-        void RecursiveFindChild(Transform parentTransform, string TargetName)
+        void RecursiveFindChild(Transform parentTransform, string targetName, ref GameObject setTarget)
         {
             for (int i = 0; i < parentTransform.childCount; i++)
             {
                 Transform childTransform = parentTransform.GetChild(i);
                 // Debug.Log(childTransform.name);
-                if (childTransform.name == TargetName)
+                if (childTransform.name == targetName)
                 {                    
-                    // Debug.Log("Found " + TargetName);
-                    playerRagdollObject = childTransform.gameObject;
+                    Debug.Log("Found " + targetName);
+                    setTarget = childTransform.gameObject;
                     return;
                 }
                 else {
-                    RecursiveFindChild(childTransform, TargetName);
+                    RecursiveFindChild(childTransform, targetName, ref setTarget);
                 }
                 
             }
@@ -110,7 +111,10 @@ namespace FIMSpace.RagdollAnimatorDemo
             // Input.GetButtonDown("Jump")
             if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.LeftShift)) && currentPlayerState == PlayerState.Alive)
             {
-                PlayerRagDoll(5, playerRagdollObject, true);
+                if (horizontalInput != 0 || verticalInput != 0)
+                {
+                    PlayerRagDoll(50, playerRagdollObject, true);
+                }
             }
 
             //rag doll related
@@ -132,10 +136,10 @@ namespace FIMSpace.RagdollAnimatorDemo
                     }
             }
 
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                PlayerRagDoll(100);
-            }
+            // if (Input.GetKeyDown(KeyCode.P))
+            // {
+            //     PlayerRagDoll(100);
+            // }
 
             canGetUp = ragdoll.Parameters.User_CanGetUp(null, false);
             limbsVelocity = ragdoll.Parameters.User_GetSpineLimbsVelocity();
@@ -186,8 +190,10 @@ namespace FIMSpace.RagdollAnimatorDemo
             if (hitObject) {
                 Vector3 objectRotation = -hitObject.transform.up;
                 if (player) {
+                    objectRotation  = new Vector3(horizontalInput, 0.2f, verticalInput);
                     Debug.DrawLine(hitObject.transform.position, hitObject.transform.position + objectRotation.normalized * 5.0f, Color.cyan, 3f);
-                    ragdoll.User_SetLimbImpact(hitObject.GetComponent<Rigidbody>(), objectRotation * power, impactDuration * 2);
+                    ragdoll.User_SetLimbImpact(playerRagdollObject.GetComponent<Rigidbody>(), objectRotation * power, impactDuration);
+                    ragdoll.User_SetLimbImpact(playerRagdollSpineObject.GetComponent<Rigidbody>(), objectRotation * power * 0.1f, impactDuration * 0.5f);
                 }
                 else {
                     Debug.DrawLine(hitObject.transform.position, hitObject.transform.position + objectRotation.normalized * 5.0f, Color.red, 3f);
@@ -266,7 +272,7 @@ namespace FIMSpace.RagdollAnimatorDemo
 
                 if (playerInvincible == false) {
                     playerStartingHealth -= coll.relativeVelocity.magnitude * damageScale;
-                    Debug.Log("player damaged " + coll.relativeVelocity.magnitude);
+                    // Debug.Log("player damaged " + coll.relativeVelocity.magnitude);
                 }
                 
                 if (playerStartingHealth <= 0)
