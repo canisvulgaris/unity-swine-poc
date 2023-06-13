@@ -45,7 +45,6 @@ namespace FIMSpace.RagdollAnimatorDemo
         // rag doll
         [FPD_Header("Ragdoll")]
         public GameObject playerRagdollObject;
-        public GameObject playerDiveObject;
 
         public bool ragdollEnabled = true;
         public RagdollAnimator ragdoll;
@@ -77,8 +76,30 @@ namespace FIMSpace.RagdollAnimatorDemo
             lastPosition = transform.position;
             rb = GetComponent<Rigidbody>();
             animator = GetComponent<Animator>();
-            playerRagdollObject = GameObject.Find("B_Pelvis");
-            // playerRagdollObject = playerRagdollParent.transform.Find("B_Pelvis").gameObject; // centering object around ragdoll pelvis
+
+            RecursiveFindChild(playerRagdollParent.transform, "B_Head");
+
+        }
+
+        void RecursiveFindChild(Transform parentTransform, string TargetName)
+        {
+            for (int i = 0; i < parentTransform.childCount; i++)
+            {
+                Transform childTransform = parentTransform.GetChild(i);
+                // Debug.Log(childTransform.name);
+                if (childTransform.name == TargetName)
+                {                    
+                    // Debug.Log("Found " + TargetName);
+                    playerRagdollObject = childTransform.gameObject;
+                    return;
+                }
+                else {
+                    RecursiveFindChild(childTransform, TargetName);
+                }
+                
+            }
+            // Debug.Log("Could not find " + TargetName);
+            return;
         }
 
         void Update()
@@ -88,7 +109,7 @@ namespace FIMSpace.RagdollAnimatorDemo
             // Input.GetButtonDown("Jump")
             if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.LeftShift)) && currentPlayerState == PlayerState.Alive)
             {
-                PlayerRagDoll(40, playerDiveObject, true);
+                PlayerRagDoll(40, playerRagdollObject, true);
             }
 
             //rag doll related
