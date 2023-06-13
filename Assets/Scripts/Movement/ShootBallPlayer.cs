@@ -18,7 +18,7 @@ public class ShootBallPlayer : MonoBehaviour
 
     public float heatMax = 100f;
     public float currentHeat = 0f;
-    public float heatPerShot = 10f;
+    public float heatPerShot = 6f;
     public float heatSinkRate = 10f;
 
     private float currentRotation = 1f;

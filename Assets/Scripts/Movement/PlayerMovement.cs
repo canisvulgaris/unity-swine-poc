@@ -110,7 +110,7 @@ namespace FIMSpace.RagdollAnimatorDemo
             // Input.GetButtonDown("Jump")
             if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.LeftShift)) && currentPlayerState == PlayerState.Alive)
             {
-                PlayerRagDoll(40, playerRagdollObject, true);
+                PlayerRagDoll(5, playerRagdollObject, true);
             }
 
             //rag doll related
@@ -170,7 +170,7 @@ namespace FIMSpace.RagdollAnimatorDemo
             
         }
 
-        void PlayerRagDoll(float power, GameObject hitObject = null, bool reverse = false)
+        void PlayerRagDoll(float power, GameObject hitObject = null, bool player = false)
         {
             if (currentPlayerState == PlayerState.Alive) {
                 currentPlayerState = PlayerState.Ragdoll;
@@ -184,11 +184,15 @@ namespace FIMSpace.RagdollAnimatorDemo
 
             // ragdoll.User_SetLimbImpact(hit.rigidbody, ray.direction.normalized * powerMul, impactDuration);
             if (hitObject) {
-                Vector3 objectRotation = -hitObject.transform.forward;
-                if (reverse) {
-                    objectRotation = hitObject.transform.up;
+                Vector3 objectRotation = -hitObject.transform.up;
+                if (player) {
+                    Debug.DrawLine(hitObject.transform.position, hitObject.transform.position + objectRotation.normalized * 5.0f, Color.cyan, 3f);
+                    ragdoll.User_SetLimbImpact(hitObject.GetComponent<Rigidbody>(), objectRotation * power, impactDuration * 2);
                 }
-                ragdoll.User_SetLimbImpact(hitObject.GetComponent<Rigidbody>(), objectRotation * power, impactDuration);
+                else {
+                    Debug.DrawLine(hitObject.transform.position, hitObject.transform.position + objectRotation.normalized * 5.0f, Color.red, 3f);
+                    ragdoll.User_SetLimbImpact(hitObject.GetComponent<Rigidbody>(), objectRotation * power, impactDuration);
+                }                
             }            
 
             if (fadeMusclesTo < 1f) {
@@ -303,6 +307,15 @@ namespace FIMSpace.RagdollAnimatorDemo
             ragdoll.User_GetUpStackV2(0f, 0.8f, 0.7f);
             ragdoll.User_ForceRagdollToAnimatorFor(0.5f, 0.5f); // (if using blend on collision) Force non-ragdoll for 0.5 sec and restore transition in 0.5 sec
                                                                 // TryPlayGetupAnimation();
+        }
+
+        public bool IsAlive() {
+            if (currentPlayerState == PlayerState.Alive) {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
 
     }

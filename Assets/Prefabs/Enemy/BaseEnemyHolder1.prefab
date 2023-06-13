@@ -413,6 +413,7 @@ MonoBehaviour:
   firingDuration: 1.2
   pauseBetweenFiring: 0.5
   timeUntilNeutral: 30
+  player: {fileID: 0}
 --- !u!65 &9169267830790245512
 BoxCollider:
   m_ObjectHideFlags: 0
