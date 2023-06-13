@@ -98,7 +98,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2fab4a8ce6d04d4ab1ec45967e15dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponStatusUI: {fileID: 0}
   ballPrefab: {fileID: 107266366453703777, guid: 3f65e1411bce04c5ca1ea11a8d51ff50, type: 3}
+  heatMax: 100
+  currentHeat: 0
+  heatPerShot: 10
+  heatSinkRate: 10
 --- !u!1 &2061881601010693197
 GameObject:
   m_ObjectHideFlags: 0
@@ -2212,19 +2217,17 @@ MonoBehaviour:
   damageScale: 1
   playerDeadMaterial: {fileID: 2100000, guid: e188b1539fdb54fd5b526606160fe54d, type: 2}
   playerModel: {fileID: 4868722689256754634}
+  playerRagdollParent: {fileID: 0}
   moveSpeed: 13
   jumpForce: 2
   groundedModifier: 1.2
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  isGrounded: 0
-  diveLeapForce: 25
-  diveLeapHeight: 0.4
-  diveTime: 0.2
-  divePostTime: 0.4
   currentPlayerState: 0
   PlayerRagdollObject: {fileID: 0}
+  PlayerDiveObject: {fileID: 0}
+  PlayerDiveObject2: {fileID: 0}
   RagdollEnabled: 1
   ragdoll: {fileID: 7263147374457099626}
   AutoGetUp: 1

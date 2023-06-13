@@ -1850,6 +1850,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &727872976 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4868722689256754204, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
+  m_PrefabInstance: {fileID: 753567712}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &745746326 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8059203848695814377, guid: d0e56989fb9cf4130b3170a0cb8f0b86, type: 3}
@@ -1873,20 +1878,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1828408596}
     - target: {fileID: 4409717969650756000, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-      propertyPath: playerRagdoll
+      propertyPath: PlayerRagdollObject
+      value: 
+      objectReference: {fileID: 727872976}
+    - target: {fileID: 4409717969650756000, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
+      propertyPath: playerRagdollParent
       value: 
       objectReference: {fileID: 1057893979}
     - target: {fileID: 4868722689256754282, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
       propertyPath: m_Name
       value: PlayerHolder
-      objectReference: {fileID: 0}
-    - target: {fileID: 4868722689256754282, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4868722689256754634, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4868722689257181194, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
       propertyPath: m_RootOrder
@@ -1936,14 +1937,6 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 997775007}
-    - target: {fileID: 5351165841872900794, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-      propertyPath: heatPerShot
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5351165841872900794, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
-      propertyPath: heatSinkRate
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 5351165841872900794, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
       propertyPath: weaponStatusUI
       value: 

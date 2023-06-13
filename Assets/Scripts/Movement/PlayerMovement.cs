@@ -16,7 +16,7 @@ namespace FIMSpace.RagdollAnimatorDemo
         public Material playerDeadMaterial;
 
         public GameObject playerModel;
-        private GameObject playerRagdollParent;
+        public GameObject playerRagdollParent;
         public float moveSpeed = 13.0f;
         public float jumpForce = 5.0f;
 
@@ -44,30 +44,31 @@ namespace FIMSpace.RagdollAnimatorDemo
 
         // rag doll
         [FPD_Header("Ragdoll")]
-        public GameObject PlayerRagdollObject;
-        public GameObject PlayerDiveObject;
-        public bool RagdollEnabled = true;
+        public GameObject playerRagdollObject;
+        public GameObject playerDiveObject;
+
+        public bool ragdollEnabled = true;
         public RagdollAnimator ragdoll;
-        public bool AutoGetUp = true;
-        public float PowerMul = 5f;
-        [Range(0f, 0.65f)] public float ImpactDuration = 0.4f;
-        [Range(0f, 1f)] public float FadeMusclesTo = 0.01f;
-        [Range(0f, 1.25f)] public float FadeMusclesDuration = 0.75f;
+        public bool autoGetUp = true;
+        public float powerMul = 5f;
+        [Range(0f, 0.65f)] public float impactDuration = 0.4f;
+        [Range(0f, 1f)] public float fadeMusclesTo = 0.01f;
+        [Range(0f, 1.25f)] public float fadeMusclesDuration = 0.75f;
         public LayerMask snapToGroundLayer = 1 << 0;
 
-        public string TriggerBlendOnTagged = "Projectile";
-        public float RestoreCulldown = 0.4f;
+        public string triggerBlendOnTagged = "Projectile";
+        public float restoreCulldown = 0.4f;
         float blendInTimer = 0f;
 
         [FPD_Header("Debugging")]
 
-        public bool PlayerInvincible = false;
-        public string TestPlayAnimOnRagdoll = "";
-        public RagdollProcessor.EGetUpType CanGetUp = RagdollProcessor.EGetUpType.None;
-        public Vector3 LimbsVelocity;
-        private Vector3 LimbsAngularVelocity;
-        public float LimbsVelocityMagn;
-        private float LimbsAngularVelocityMagn;
+        public bool playerInvincible = false;
+        public string testPlayAnimOnRagdoll = "";
+        public RagdollProcessor.EGetUpType canGetUp = RagdollProcessor.EGetUpType.None;
+        public Vector3 limbsVelocity;
+        private Vector3 limbsAngularVelocity;
+        public float limbsVelocityMagn;
+        private float limbsAngularVelocityMagn;
 
         float toGetUpElapsed = 0f;
 
@@ -76,30 +77,9 @@ namespace FIMSpace.RagdollAnimatorDemo
             lastPosition = transform.position;
             rb = GetComponent<Rigidbody>();
             animator = GetComponent<Animator>();
-            PlayerRagdollObject = GameObject.Find("B_Pelvis"); // centering object around ragdoll pelvis
-            playerRagdollParent = GameObject.Find("PlayerHolder-Ragdoll-SkeletonOrigin");
-            PlayerDiveObject = playerRagdollParent.transform.Find("B_Pelvis").gameObject;
-            // StartCoroutine(FindDiveObject());
+            playerRagdollObject = GameObject.Find("B_Pelvis");
+            // playerRagdollObject = playerRagdollParent.transform.Find("B_Pelvis").gameObject; // centering object around ragdoll pelvis
         }
-
-        // IEnumerator FindDiveObject()
-        // {
-        //     yield return new WaitForSeconds(5);
-
-        //     // PlayerDiveObject = playerRagdollParent.transform.Find("PlayerHolder-Ragdoll-SkeletonOrigin").gameObject;
-        //     string childName = "B_Head";
-        //     Transform parentTransform = playerRagdollParent.transform;
-
-        //     for (int i = 0; i < parentTransform.childCount; i++)
-        //     {
-        //         Transform childTransform = parentTransform.GetChild(i);
-        //         if (childTransform.name == childName)
-        //         {
-        //             Debug.Log("Found a child with the name: " + childTransform.name);
-        //             break;
-        //         }
-        //     }
-        // }
 
         void Update()
         {
@@ -108,17 +88,17 @@ namespace FIMSpace.RagdollAnimatorDemo
             // Input.GetButtonDown("Jump")
             if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.LeftShift)) && currentPlayerState == PlayerState.Alive)
             {
-                PlayerRagDoll(40, PlayerDiveObject, true);
+                PlayerRagDoll(40, playerDiveObject, true);
             }
 
             //rag doll related
-            if (RagdollEnabled && AutoGetUp)
+            if (ragdollEnabled && autoGetUp)
             {
                 if (ragdoll.Parameters.FreeFallRagdoll)
-                    if (CanGetUp != RagdollProcessor.EGetUpType.None)
+                    if (canGetUp != RagdollProcessor.EGetUpType.None)
                     {
-                        if (LimbsAngularVelocityMagn < 1f)
-                            if (LimbsVelocityMagn < 0.1f)
+                        if (limbsAngularVelocityMagn < 1f)
+                            if (limbsVelocityMagn < 0.1f)
                             {
                                 toGetUpElapsed += Time.deltaTime;
                                 if (toGetUpElapsed > 0.5f)
@@ -135,13 +115,13 @@ namespace FIMSpace.RagdollAnimatorDemo
                 PlayerRagDoll(100);
             }
 
-            CanGetUp = ragdoll.Parameters.User_CanGetUp(null, false);
-            LimbsVelocity = ragdoll.Parameters.User_GetSpineLimbsVelocity();
-            LimbsAngularVelocity = ragdoll.Parameters.User_GetSpineLimbsAngularVelocity();
-            LimbsVelocityMagn = LimbsVelocity.magnitude;
-            LimbsAngularVelocityMagn = LimbsAngularVelocity.magnitude;
+            canGetUp = ragdoll.Parameters.User_CanGetUp(null, false);
+            limbsVelocity = ragdoll.Parameters.User_GetSpineLimbsVelocity();
+            limbsAngularVelocity = ragdoll.Parameters.User_GetSpineLimbsAngularVelocity();
+            limbsVelocityMagn = limbsVelocity.magnitude;
+            limbsAngularVelocityMagn = limbsAngularVelocity.magnitude;
 
-            if (ragdoll.Parameters.FreeFallRagdoll == false && currentPlayerState == PlayerState.Ragdoll && AutoGetUp) {
+            if (ragdoll.Parameters.FreeFallRagdoll == false && currentPlayerState == PlayerState.Ragdoll && autoGetUp) {
                 currentPlayerState = PlayerState.Alive;
             }
 
@@ -175,21 +155,21 @@ namespace FIMSpace.RagdollAnimatorDemo
             ragdoll.User_EnableFreeRagdoll();
             ragdoll.User_SwitchAnimator(null, false, 0.15f);
 
-            // ragdoll.User_SetLimbImpact(hit.rigidbody, ray.direction.normalized * PowerMul, ImpactDuration);
+            // ragdoll.User_SetLimbImpact(hit.rigidbody, ray.direction.normalized * powerMul, impactDuration);
             if (hitObject) {
                 Vector3 objectRotation = -hitObject.transform.forward;
                 if (reverse) {
                     objectRotation = hitObject.transform.up;
                 }
-                ragdoll.User_SetLimbImpact(hitObject.GetComponent<Rigidbody>(), objectRotation * power, ImpactDuration);
+                ragdoll.User_SetLimbImpact(hitObject.GetComponent<Rigidbody>(), objectRotation * power, impactDuration);
             }            
 
-            if (FadeMusclesTo < 1f) {
-                ragdoll.User_FadeMuscles(FadeMusclesTo, FadeMusclesDuration);
+            if (fadeMusclesTo < 1f) {
+                ragdoll.User_FadeMuscles(fadeMusclesTo, fadeMusclesDuration);
             }
 
-            if (TestPlayAnimOnRagdoll != "") {
-                ragdoll.ObjectWithAnimator.GetComponent<Animator>().CrossFadeInFixedTime(TestPlayAnimOnRagdoll, 0.15f);
+            if (testPlayAnimOnRagdoll != "") {
+                ragdoll.ObjectWithAnimator.GetComponent<Animator>().CrossFadeInFixedTime(testPlayAnimOnRagdoll, 0.15f);
             }            
         }
 
@@ -202,7 +182,7 @@ namespace FIMSpace.RagdollAnimatorDemo
             else
             {
                 rb.velocity = Vector3.zero;
-                transform.position = new Vector3(PlayerRagdollObject.transform.position.x, transform.position.y, PlayerRagdollObject.transform.position.z);
+                transform.position = new Vector3(playerRagdollObject.transform.position.x, transform.position.y, playerRagdollObject.transform.position.z);
             }
         }
         void MovePlayer()
@@ -257,7 +237,7 @@ namespace FIMSpace.RagdollAnimatorDemo
             if (coll.gameObject.tag == "Projectile")
             {                
 
-                if (PlayerInvincible == false) {
+                if (playerInvincible == false) {
                     playerStartingHealth -= coll.relativeVelocity.magnitude * damageScale;
                     Debug.Log("player damaged " + coll.relativeVelocity.magnitude);
                 }
@@ -271,11 +251,11 @@ namespace FIMSpace.RagdollAnimatorDemo
 
         public void RagdAnim_OnCollisionEnterEvent(RagdollProcessor.RagdollCollisionHelper c)
         {
-            if (c.LatestEnterCollision.collider.CompareTag(TriggerBlendOnTagged) && c.LatestEnterCollision.relativeVelocity.magnitude > 20f)
+            if (c.LatestEnterCollision.collider.CompareTag(triggerBlendOnTagged) && c.LatestEnterCollision.relativeVelocity.magnitude > 20f)
             {
                 Debug.Log("Hit Limb " + c.LimbID + " with power " + c.LatestEnterCollision.relativeVelocity.magnitude);
                 ragdoll = c.ParentRagdollAnimator;
-                blendInTimer = RestoreCulldown;
+                blendInTimer = restoreCulldown;
                 PlayerRagDoll(c.LatestEnterCollision.relativeVelocity.magnitude, c.gameObject);
             }
         }
@@ -288,7 +268,7 @@ namespace FIMSpace.RagdollAnimatorDemo
         {
             currentPlayerState = PlayerState.Dead;
             PlayerRagDoll(10);
-            AutoGetUp = false;            
+            autoGetUp = false;            
             // playerModel.GetComponent<Renderer>().material = playerDeadMaterial;
             console.SendMessage("ShowFail"); //Send Damage message to hit object
         }

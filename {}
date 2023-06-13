@@ -1,0 +1,10 @@
+HTTP/1.1 502 Bad Gateway
+content-type: application/json; charset=utf-8
+vary: origin
+access-control-expose-headers: WWW-Authenticate,Server-Authorization
+cache-control: no-cache
+content-length: 0
+Date: Mon, 12 Jun 2023 15:33:46 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
