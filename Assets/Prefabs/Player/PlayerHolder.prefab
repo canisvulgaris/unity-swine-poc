@@ -2225,26 +2225,24 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   currentPlayerState: 0
-  PlayerRagdollObject: {fileID: 0}
-  PlayerDiveObject: {fileID: 0}
-  PlayerDiveObject2: {fileID: 0}
-  RagdollEnabled: 1
+  playerRagdollObject: {fileID: 0}
+  ragdollEnabled: 1
   ragdoll: {fileID: 7263147374457099626}
-  AutoGetUp: 1
-  PowerMul: 5
-  ImpactDuration: 0.4
-  FadeMusclesTo: 0.01
-  FadeMusclesDuration: 0.75
+  autoGetUp: 1
+  powerMul: 5
+  impactDuration: 0.4
+  fadeMusclesTo: 0.01
+  fadeMusclesDuration: 0.75
   snapToGroundLayer:
     serializedVersion: 2
     m_Bits: 8
-  TriggerBlendOnTagged: Projectile
-  RestoreCulldown: 1
-  PlayerInvincible: 0
-  TestPlayAnimOnRagdoll: Fall
-  CanGetUp: 0
-  LimbsVelocity: {x: 0, y: 0, z: 0}
-  LimbsVelocityMagn: 0
+  triggerBlendOnTagged: Projectile
+  restoreCulldown: 0.4
+  playerInvincible: 0
+  testPlayAnimOnRagdoll: 
+  canGetUp: 0
+  limbsVelocity: {x: 0, y: 0, z: 0}
+  limbsVelocityMagn: 0
 --- !u!114 &7263147374457099626
 MonoBehaviour:
   m_ObjectHideFlags: 0

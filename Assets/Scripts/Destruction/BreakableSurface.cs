@@ -127,10 +127,20 @@ namespace GK
         }
 
         void OnCollisionEnter(Collision coll)
-        {
+        {            
             CheckForIntact();
+            float impactModifier = 1.0f;
+            if (coll.gameObject.tag == "Player") {
+                impactModifier = 0.5f;
+            }
+            else
+            {
+                impactModifier = 1.0f;
+            }
 
-            if (coll.relativeVelocity.magnitude > MinImpactToBreak)
+            // Debug.Log("Collision with " + coll.gameObject.name + " magnitude " + coll.relativeVelocity.magnitude + " needs " + MinImpactToBreak * impactModifier);
+
+            if (coll.relativeVelocity.magnitude > MinImpactToBreak * impactModifier)
             {
                 var pnt = coll.contacts[0].point;
                 Break((Vector2)transform.InverseTransformPoint(pnt));

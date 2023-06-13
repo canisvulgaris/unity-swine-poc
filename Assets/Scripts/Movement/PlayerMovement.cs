@@ -77,6 +77,7 @@ namespace FIMSpace.RagdollAnimatorDemo
             rb = GetComponent<Rigidbody>();
             animator = GetComponent<Animator>();
 
+            // need to find the head of the ragdoll to sync player movement and diving motion
             RecursiveFindChild(playerRagdollParent.transform, "B_Head");
 
         }
@@ -206,7 +207,7 @@ namespace FIMSpace.RagdollAnimatorDemo
                 MovePlayer();
             }
         }
-        
+
         void MovePlayer()
         {
             float moveSpeedModifier = moveSpeed;
