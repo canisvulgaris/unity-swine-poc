@@ -161,6 +161,11 @@ namespace FIMSpace.RagdollAnimatorDemo
                 }
             }
 
+            if (currentPlayerState != PlayerState.Alive)
+            {
+                rb.velocity = Vector3.zero;
+                transform.position = new Vector3(playerRagdollObject.transform.position.x, transform.position.y, playerRagdollObject.transform.position.z);
+            }
             
         }
 
@@ -200,12 +205,8 @@ namespace FIMSpace.RagdollAnimatorDemo
             {
                 MovePlayer();
             }
-            else
-            {
-                rb.velocity = Vector3.zero;
-                transform.position = new Vector3(playerRagdollObject.transform.position.x, transform.position.y, playerRagdollObject.transform.position.z);
-            }
         }
+        
         void MovePlayer()
         {
             float moveSpeedModifier = moveSpeed;
