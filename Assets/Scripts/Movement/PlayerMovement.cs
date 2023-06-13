@@ -324,6 +324,15 @@ namespace FIMSpace.RagdollAnimatorDemo
             }
         }
 
+        public bool IsDead() {
+            if (currentPlayerState == PlayerState.Dead) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
     }
 
 }

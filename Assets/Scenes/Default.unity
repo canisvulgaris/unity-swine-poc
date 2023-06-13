@@ -1937,6 +1937,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 997775007}
     - target: {fileID: 5351165841872900794, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
+      propertyPath: heatPerShot
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5351165841872900794, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
+      propertyPath: heatSinkRate
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5351165841872900794, guid: 99c16b740dfcd4d779f34ac05087b4f9, type: 3}
       propertyPath: weaponStatusUI
       value: 
       objectReference: {fileID: 1351429462}
